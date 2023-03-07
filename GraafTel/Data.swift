@@ -61,8 +61,8 @@ let dictionary: [String: Any] = [
             "domain": "1.1",
             "KTI": "insight",
             "question": "What is the name of this measurement instrument?",
-            "options": ["centimeter", "A crest-stage gage", "hygrometer", "nanometer"],
-            "answer": "A crest-stage gage"
+            "options": ["centimeter", "ruler", "hygrometer", "protractor"],
+            "answer": "ruler"
         ]
     ],
     "question_4": [
@@ -94,26 +94,21 @@ let dictionary: [String: Any] = [
         "question_type": "fill_in_the_blank",
         "domain": "1.2",
         "KTI": "application",
-        "question": "On the thermometers you can see the temperature in Kelvin, degrees Celsius, Kelvin and Fahrenheit.\nRead the answers to the questions on the thermometers.",
+        "question": "On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\nRead the answers to the questions on the thermometers.",
         "questions": [
             "question_a": [
-                "first_part": "What temperature does arrow A indicate in degrees Celsius?",
-                "answer": "25",
-                "second_part": "°C"
-            ],
-            "question_b": [
-                "first_part": "What temperature does arrow B indicate in degrees Fahrenheit?",
-                "answer": "113",
+                "first_part": "What temperature 100 in degrees Celsius translate to in degrees Fahrenheit?",
+                "answer": "212",
                 "second_part": "°F"
             ],
-            "question_c": [
-                "first_part": "Arrow C indicates 176 Fahrenheit. What temperature in Kelvin is that?",
-                "answer": "353.15",
-                "second_part": "K"
+            "question_b": [
+                "first_part": "What temperature is the left thermometer showing in degrees Celsius?",
+                "answer": "24",
+                "second_part": "°C"
             ],
-            "question_d": [
-                "first_part": "What is the difference between the number of degrees Celsius and the temperature in Kelvin?",
-                "answer": "273.15",
+            "question_c": [
+                "first_part": "What is the difference between the number of degrees Celsius and the temperature in Fahrenheit?",
+                "answer": "32",
                 "second_part": "degrees"
             ],
         ]
