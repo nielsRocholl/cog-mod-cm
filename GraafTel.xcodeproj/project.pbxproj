@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		49B65072AF96C92E628C2A7E /* GraafTelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B65CEFDACA207363E4385A /* GraafTelApp.swift */; };
 		49B650CC93C8FED01672056A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B65ECB3C58546089C0FE69 /* Preview Assets.xcassets */; };
+		49B650F489BC6C0F56B3C628 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6536C496D36BBDB6CF748 /* Data.swift */; };
 		49B65236DCF308CB38485F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B65C0DB4997286C57FF67B /* Assets.xcassets */; };
 		49B65898D4EA5824F26DC1C0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 49B6560D7A0A15CFEC1403F2 /* .gitignore */; };
 		49B659CC8DF9393A4078DBDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B65B32F7FF5F1F7537154A /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49B6536C496D36BBDB6CF748 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		49B6553FD3A0D494A3FA43E1 /* GraafTel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GraafTel.entitlements; sourceTree = "<group>"; };
 		49B6560D7A0A15CFEC1403F2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		49B65B32F7FF5F1F7537154A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 				49B65CEFDACA207363E4385A /* GraafTelApp.swift */,
 				49B65B32F7FF5F1F7537154A /* ContentView.swift */,
 				49B6553FD3A0D494A3FA43E1 /* GraafTel.entitlements */,
+				49B6536C496D36BBDB6CF748 /* Data.swift */,
 			);
 			path = GraafTel;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			files = (
 				49B65072AF96C92E628C2A7E /* GraafTelApp.swift in Sources */,
 				49B659CC8DF9393A4078DBDC /* ContentView.swift in Sources */,
+				49B650F489BC6C0F56B3C628 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
