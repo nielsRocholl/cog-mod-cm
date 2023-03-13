@@ -151,11 +151,71 @@ let dictionary: [String: Any] = [
                 "answer": 0.032,
                 "unit": "GW",
         ],
-        "p14": [],
+        "p14": [
+            "img": "question_p14.png",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": """
+                            When copying a folder on the computer, you can see below the graph which part has already been copied.
+                            \nHow many megabytes are copied in total?
+                            """,
+                "answer": 2138.30,
+                "unit": "MB",
+                "points": 3
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many gigabytes still need to be copied?",
+                "answer": 1134.30,
+                "unit": "MB",
+                "points": 2
+            ]
+        ],
         "p15": [],
         "p16": [],
-        "p17": [],
-        "p18": [],
+        "p17": [
+            "img": "question_p17.png",
+            "question_1": [
+                "question_type": "multiple_choice",
+                "question": "How high is the statue approximately?",
+                "options": ["2.5 meters", "3.5 meters", "6.5 meters", "12 meters"],
+                "answer": "6.5 meters",
+                "points": 2
+                ],
+            "question_2": [
+                "question_type": "multiple_choice",
+                "question": "How long is the statue approximately?",
+                "options": ["1 meters", "2 meters", "3 meters", " 7 meters"],
+                "answer": "7 meters",
+                "points": 3
+                ],
+
+
+        ],
+        "p18": [
+            "fact": "A household uses an average of 95,625 liters of water every year. That results in a water bill of about € 76.50. An average household consists of 2,125 persons.",
+            "question_1": [
+                "question_type": "multiple_choice",
+                "question": "Approximately how many households are there?",
+                "options": ["8000", "80.000", "8 million", "8 billion"],
+                "answer": "8 million",
+                "points": 1
+                ],
+            "question_2": [
+                "question_type": "multiple_choice",
+                "question": "How many cubic meters of water does one Dutch person use on average per year?",
+                "options": ["40", "45", "50", "40.000", "45.000"],
+                "answer": "45",
+                "points": 2
+                ],
+            "question_3": [
+                "question_type": "multiple_choice",
+                "question": "How many billion euros is the joint water bill of all people?",
+                "options": ["0.6", "6", "60", "600"],
+                "answer": "600",
+                "points": 2
+                ],
+        ],
         "p19": [],
         "p21": [],
     ],
