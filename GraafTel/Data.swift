@@ -128,20 +128,20 @@ let dictionary: [String: Any] = [
                 "options": [1000, 10000, 100000, 1000000, 1000000000],
                 "answer": 1000000,
                 "points": 2
-                ],
+            ],
             "question_2": [
                 "question_type": "multiple_choice",
                 "question": "What is kWh the abbreviation for?",
                 "options": ["Kilowatt hour", "Kilowatt", "Kilogram", "Kilometer", "Kilogram per hour"],
                 "answer": "Kilowatt hour",
                 "points": 1
-                ],
+            ],
             "question_3": [
                 "question_type": "fill_in_the_blank",
                 "question": "How much electricity does an average household use per year?",
                 "answer": 3.2,
                 "unit": "MWh",
-                ],
+            ],
             "question_4": [
                 "question_type": "fill_in_the_blank",
                 "question": """
@@ -150,6 +150,7 @@ let dictionary: [String: Any] = [
                             """,
                 "answer": 0.032,
                 "unit": "GW",
+            ],
         ],
         "p14": [
             "img": "question_p14.png",
@@ -181,14 +182,14 @@ let dictionary: [String: Any] = [
                 "options": ["2.5 meters", "3.5 meters", "6.5 meters", "12 meters"],
                 "answer": "6.5 meters",
                 "points": 2
-                ],
+            ],
             "question_2": [
                 "question_type": "multiple_choice",
                 "question": "How long is the statue approximately?",
                 "options": ["1 meters", "2 meters", "3 meters", " 7 meters"],
                 "answer": "7 meters",
                 "points": 3
-                ],
+            ],
 
 
         ],
@@ -200,21 +201,21 @@ let dictionary: [String: Any] = [
                 "options": ["8000", "80.000", "8 million", "8 billion"],
                 "answer": "8 million",
                 "points": 1
-                ],
+            ],
             "question_2": [
                 "question_type": "multiple_choice",
                 "question": "How many cubic meters of water does one Dutch person use on average per year?",
                 "options": ["40", "45", "50", "40.000", "45.000"],
                 "answer": "45",
                 "points": 2
-                ],
+            ],
             "question_3": [
                 "question_type": "multiple_choice",
                 "question": "How many billion euros is the joint water bill of all people?",
                 "options": ["0.6", "6", "60", "600"],
                 "answer": "600",
                 "points": 2
-                ],
+            ],
         ],
         "p19": [],
         "p21": [],
