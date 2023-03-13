@@ -110,6 +110,11 @@ let dictionary: [String: Any] = [
         ],
     ],
     "skilltree": [
+        "p1": [],
+        "p2": [],
+        "p3": [],
+        "p4": [],
+        "p5": [],
         "p6": [
             "img": "question_p6.png",
             "question_1":
@@ -137,6 +142,7 @@ let dictionary: [String: Any] = [
                 "points": 1
             ],
         ],
+        "p7": [],
         "p8": [
             "fact": "The annual amount of waste produced per inhabitant in the Netherlands is 490kg.",
             "question_1": [
@@ -190,9 +196,15 @@ let dictionary: [String: Any] = [
             ],
         ],
         "p10": [],
+        "p11": [],
+        "p12": [],
         "p13": [],
         "p14": [],
+        "p15": [],
+        "p16": [],
         "p17": [],
         "p18": [],
+        "p19": [],
+        "p21": [],
     ],
 ]
