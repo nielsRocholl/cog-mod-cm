@@ -88,10 +88,69 @@ let dictionary: [String: Any] = [
                 "points": 3
             ],
         ],
-        "p10": [],
+        "p10": [
+            "img": "question_p10.png",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": """
+                            The schedule shows the opening hours of the Restaurant, the Grand Café and the Liquor Store.\n
+                            How many hours on Thursday is the Grand Café open longer than the Liquor Store?
+                            """,
+                "answer": 5.5,
+                "unit": "hours",
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many minutes is the Restaurant open less than the Grand Café on Saturdays??",
+                "answer": 180,
+                "unit": "minutes",
+                "points": 2
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "On how many days was the liquor store open in February 2021 (not a leap year)?",
+                "answer": 20,
+                "unit": "days",
+                "points": 2
+            ],
+        ],
         "p11": [],
         "p12": [],
-        "p13": [],
+        "p13": [
+            "fact": """
+                    An ultra-modern windmill has a capacity of 8 MW and delivers per year\n
+                    17.6 million kWh of electricity for 5500 households.
+                    """,
+            "question_1": [
+                "question_type": "multiple_choice",
+                "question": "What is the value of the letter M in MW?",
+                "options": [1000, 10000, 100000, 1000000, 1000000000],
+                "answer": 1000000,
+                "points": 2
+                ],
+            "question_2": [
+                "question_type": "multiple_choice",
+                "question": "What is kWh the abbreviation for?",
+                "options": ["Kilowatt hour", "Kilowatt", "Kilogram", "Kilometer", "Kilogram per hour"],
+                "answer": "Kilowatt hour",
+                "points": 1
+                ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "How much electricity does an average household use per year?",
+                "answer": 3.2,
+                "unit": "MWh",
+                ],
+            "question_4": [
+                "question_type": "fill_in_the_blank",
+                "question": """
+                            A wind farm has 4 ultra-modern wind turbines.\n
+                            What is the total power of these windmills?
+                            """,
+                "answer": 0.032,
+                "unit": "GW",
+        ],
         "p14": [],
         "p15": [],
         "p16": [],
