@@ -347,6 +347,43 @@ let dictionary: [String: Any] = [
                 "answer": 2700
             ],
         ],
+        "q1.4.10": [
+            "fact": "Today is the 7th of February and this year is a leap year.",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "It is the birthday of Wim in 23 days, on which date is the birthday of Wim?",
+                "answer": 01-03-2020
+            ],
+        ],
+        "q1.3.8": [
+            "fact": "On average, one person uses 165 kg of paper each year and the Netherlands has 17 million citizens.",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "What is the total amount of paper used in the Netherlands for each year?",
+                "answer": 2805000000,
+                "unit": "kg"
+            ],
+        ],
+        "q1.3.12": [
+            "fact": "A liter of water weighs 1 kg and a liter of milk weighs 1.03 kg. Farmers earn 37.50 euros for every 100 kg of milk",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many liter corresponds to 100 kg of milk (round to a whole number)?",
+                "answer": 97,
+                "unit": "liter"
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "What does a farmer earn for each liter of milk (round to 2 decimals)?",
+                "answer": 0.30
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "How much grams is 1 liter of milk heavier compared to 1 liter of water?",
+                "answer": 30,
+                "unit": "gram"
+            ],
+        ],
         
     ],
 ]
