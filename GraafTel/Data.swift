@@ -195,15 +195,116 @@ let dictionary: [String: Any] = [
                 "points": 3
             ],
         ],
-        "p10": [],
+        "p10": [
+            "img": "question_p10.png",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many hours is the Grand Café open longer compared to the Sluiterij?",
+                "answer": 5.5,
+                "unit": "hours",
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many quarters of an hour is the Restaurant extra open on Saturday compared to the Grand Café?",
+                "answer": 12,
+                "unit": "quaters of an hour",
+                "points": 2
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many days was the Sluiterij open in Febraury 2020",
+                "answer": 20,
+                "unit": "days",
+                "points": 2
+            ],
+        ],
         "p11": [],
         "p12": [],
-        "p13": [],
-        "p14": [],
+        "p13": [
+            "fact": "A windmill has a power of 8 MW and produces 17.6 million kWh of electricity for 5500 households",
+            "question_1": [
+                "question_type": "mulitple choice",
+                "question": "What does the M stand for in MW",
+                "options": ["1000", "10000", "100000", "1000000", "1000000000"],
+                "answer": "1000000",
+                "points": 2
+            ],
+            "question_2": [
+                "question_type": "multiple choice",
+                "question": "What does the abbreviation kWh stand for?",
+                "options": ["kleinewattuur", "kilowattuur", "klikowattuur", "kwattuur"],
+                "answer": "kilowatuur",
+                "points": 2
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "What is the total power of a windmill park that consists of 4 windmills",
+                "answer": 0.032,
+                "unit": "GW",
+                "points": 2
+            ],
+        ],
+        "p14": [
+            "img": "question_p14.png",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "How much MB is copied in total?",
+                "answer": 11600,
+                "unit": "MB",
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "How much GB has to be copied from this point onwards?",
+                "answer": 11.2375,
+                "unit": "GB",
+                "points": 2
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "Copying 11.6 GB takes 2 minutes in total, what is the copy speed in MB/s?",
+                "answer": 96.7,
+                "unit": "MB/s",
+                "points": 2
+            ],
         "p15": [],
         "p16": [],
-        "p17": [],
-        "p18": [],
+        "p17": [
+            "img": "question_p17.png",
+            "question_1": [
+                "question_type": "multiple choice",
+                "question": "What is roughly the height of the statue?",
+                "options": ["2.5", "4", "6.5", "9"]
+                "answer": "6.5",
+                "unit": "m",
+                "points": 2
+            ],
+            "question_2": [
+                "question_type": "multiple choice",
+                "question": "Looking at the height, what is the ratio between the horse and human head?",
+                "options": ["1/1", "1/2", "1/8", "1/15", "1/20"]
+                "answer": "1/8",
+                "points": 3
+            ],
+        "p18": [
+            "fact": "In the Netherlands, a household consists of 2.125 people on average. One household uses on average 95625 liters of water, which costs 76.50 euros",
+            "question_1": [
+                "question_type": "mulitple choice",
+                "question": "How many households does the Netherlands roughly have?",
+                "options": ["8000", "80000", "8000000", "8000000000"],
+                "answer": "8000000",
+                "points": 2
+            ],
+            "question_2": [
+                "question_type": "multiple choice",
+                "question": "How many kubic meters of water does one dutch person on average use per year?",
+                "options": ["40", "45", "50", "40000", "45000"]
+                "answer": "45",
+                "unit": "m^3",
+                "points": 2
+            ],
+        ],
         "p19": [],
         "p21": [],
     ],
