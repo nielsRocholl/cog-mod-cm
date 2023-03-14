@@ -142,7 +142,29 @@ let dictionary: [String: Any] = [
                 "points": 1
             ],
         ],
-        "p7": [],
+        "p7": [
+            "question 1": [
+                "question_type": "fill_in_the_blank",
+                "question": "1.3 kg + 350 g",
+                "answer": 1650,
+                "unit": "g",
+                "points": 1
+            ],
+            "question 2": [
+                "question_type": "fill_in_the_blank",
+                "question": "3.7 tons + 420 kg",
+                "answer": 4.12,
+                "unit": "tons",
+                "points": 2
+            ],
+            "question 3": [
+                "question_type": "fill_in_the_blank",
+                "question": "0.8 g + 90 mg",
+                "answer": 170,
+                "unit": "mg",
+                "points": 2
+            ],
+        ],
         "p8": [
             "fact": "The annual amount of waste produced per inhabitant in the Netherlands is 490kg.",
             "question_1": [
@@ -219,7 +241,21 @@ let dictionary: [String: Any] = [
                 "points": 2
             ],
         ],
-        "p11": [],
+        "p11": [
+            "fact": "It is 9:15 in London"
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "What is the time in Amsterdam?",
+                "answer": 10:15,
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "Shahim takes a plane from Amsterdam to Los Angeles. His plane departures at 14:25. The flight takes 11 hours and 40 minutes. At what time does he arrive in the local timezone?",
+                "answer": 17:05,
+                "points": 4
+            ],
+        ],
         "p12": [],
         "p13": [
             "fact": "A windmill has a power of 8 MW and produces 17.6 million kWh of electricity for 5500 households",
@@ -306,6 +342,7 @@ let dictionary: [String: Any] = [
             ],
         ],
         "p19": [],
+        "p20": [],
         "p21": [],
         "q1.2.11": [
             "img": "q1.2.11.png",
