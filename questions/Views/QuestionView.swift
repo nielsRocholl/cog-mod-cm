@@ -13,7 +13,11 @@ struct QuestionView: View {
     
     var body: some View {
         VStack(spacing: 40) {
+            Spacer()
+                .frame(minHeight: 0.5, idealHeight: 0.5, maxHeight: 0.5)
+                .fixedSize()
             HStack {
+                                
                 Text("Trivia Game")
                     .yellowTitle()
                 
@@ -31,6 +35,9 @@ struct QuestionView: View {
                     .font(.system(size: 20))
                     .bold()
                     .foregroundColor(.gray)
+                
+                // Adds a text field button
+                TextfieldBootcamp()
                 
                 ForEach(triviaManager.answerChoices, id: \.id) { answer in
                     AnswerRow(answer: answer)
@@ -50,7 +57,7 @@ struct QuestionView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
-        .background(Color(.black))
+        .background(Color.black)
         // the code on the next line hides the "back" button so that the user cannot go back when they just start the game
         .navigationBarHidden(true)
     }
