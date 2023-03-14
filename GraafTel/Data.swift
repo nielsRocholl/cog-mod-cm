@@ -273,33 +273,33 @@ let dictionary: [String: Any] = [
         "p17": [
             "img": "question_p17.png",
             "question_1": [
-                "question_type": "multiple choice",
+                "question_type": "multiple_choice",
                 "question": "What is roughly the height of the statue?",
-                "options": ["2.5", "4", "6.5", "9"]
+                "options": ["2.5", "4", "6.5", "9"],
                 "answer": "6.5",
                 "unit": "m",
                 "points": 2
             ],
             "question_2": [
-                "question_type": "multiple choice",
+                "question_type": "multiple_choice",
                 "question": "Looking at the height, what is the ratio between the horse and human head?",
-                "options": ["1/1", "1/2", "1/8", "1/15", "1/20"]
+                "options": ["1/1", "1/2", "1/8", "1/15", "1/20"],
                 "answer": "1/8",
                 "points": 3
             ],
         "p18": [
             "fact": "In the Netherlands, a household consists of 2.125 people on average. One household uses on average 95625 liters of water, which costs 76.50 euros",
             "question_1": [
-                "question_type": "mulitple choice",
+                "question_type": "mulitple_choice",
                 "question": "How many households does the Netherlands roughly have?",
                 "options": ["8000", "80000", "8000000", "8000000000"],
                 "answer": "8000000",
                 "points": 2
             ],
             "question_2": [
-                "question_type": "multiple choice",
+                "question_type": "multiple_choice",
                 "question": "How many kubic meters of water does one dutch person on average use per year?",
-                "options": ["40", "45", "50", "40000", "45000"]
+                "options": ["40", "45", "50", "40000", "45000"],
                 "answer": "45",
                 "unit": "m^3",
                 "points": 2
@@ -307,5 +307,46 @@ let dictionary: [String: Any] = [
         ],
         "p19": [],
         "p21": [],
+        "q1.2.11": [
+            "img": "q1.2.11.png",
+            "question 1": [
+                "question_type": "fill_in_the_blank",
+                "question": "What is the distance to the market?",
+                "answer": 200,
+                "unit": "m"
+            ],
+            "question 2": [
+                "question_type": "fill_in_the_blank",
+                "question": "From this board onwards, compare the distance between the board and Herzogenrath and Vaals, how much further is Herzogenrath?",
+                "answer": 77,
+                "unit": "hm"
+            ],
+        ],
+        "q1.2.12": [
+            "img": "q1.2.12.png",
+            "question 1": [
+                "question_type": "fill_in_the_blank",
+                "question": "What is the length of the woodem beam in meters?",
+                "answer": 3,
+                "unit": "m"
+            ],
+            "question 2": [
+                "question_type": "fill_in_the_blank",
+                "question": "What is the width of one wooden beam in centimeters?",
+                "answer": 4.4,
+                "unit": "cm"
+            ],
+            "question 3": [
+                "question_type": "fill_in_the_blank",
+                "question": "One wooden beam costs 6.75, how many beams can you buy for 60.75?",
+                "answer": 9
+            ],
+            "question 4": [
+                "question_type": "fill_in_the_blank",
+                "question": "If you buy 9 beams, what is the total length in centimeters of your order?",
+                "answer": 2700
+            ],
+        ],
+        
     ],
 ]
