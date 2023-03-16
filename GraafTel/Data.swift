@@ -256,7 +256,30 @@ let dictionary: [String: Any] = [
                 "points": 4
             ],
         ],
-        "p12": [],
+        "p12": [
+            "fact": "Today it is the 7th of July. Orlando leaves in three weeks for a 12 day holiday. The travel days are also part of the holiday.",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "On which day does Orlando leave?",
+                "answer": 28,
+                "unit": "July",
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "On which day does Orlando return home?",
+                "answer": 8,
+                "unit": "August",
+                "points": 2
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "Indra returned today from a holiday that lasted for 12 days, on which day did she leave?",
+                "answer": 26,
+                "unit": "June",
+                "points": 2
+            ],
+        ],
         "p13": [
             "fact": "A windmill has a power of 8 MW and produces 17.6 million kWh of electricity for 5500 households",
             "question_1": [
@@ -421,6 +444,28 @@ let dictionary: [String: Any] = [
                 "unit": "gram"
             ],
         ],
-        
+        "question4_node1": [
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "A classroom is 5 meters to 400 centimeters, what is the area in m^2?",
+                "answer": 20,
+                "unit": "m^2",
+                "points": 2
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "1 dm^2 of carpet costs 0.55 euros. What does it cost to cover the classroom?",
+                "answer": 1100,
+                "unit": "euros",
+                "points": 3
+            ],
+        ],
+        "question5_node1": [
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "A wall is 3000 mm high anf 3 4 m long. One bucket of paint covers 50 dm^2. How many buckets of paints are needed?",
+                "answer": 24
+            ],
+        ],
     ],
 ]
