@@ -172,8 +172,46 @@ let dictionary: [String: Any] = [
                 "points": 2
             ]
         ],
-        "p15": [],
-        "p16": [],
+        "p15": [
+            "img": "question_p15.png",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": """
+                            Joerie needs to drive from groningen to Amsterdam, his average speed is 90 km/h.\n
+                            After 68 minutes he arrives in Zwolle and takes a break.\n
+                            How many kilometers has he driven?
+                            """,
+                "answer": 102,
+                "unit": "km",
+                "points": 3
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many minutes does the the whole trip take?",
+                "answer": 144,
+                "unit": "minutes",
+                "points": 2
+            ],
+        ],
+        "p16": [
+            "fact": """
+                    Maud and Tirsa make a 55 km bike ride. Along the way, they take two 15-minute breaks. They leave at 10:30 in the morning.
+                    """,
+            "question_1": [
+                "question_type": "multiple_choice",
+                "question": "What time will they arrive approximately?",
+                "options": ["14:15", "15:00", "15:45"],
+                "answer": "14:15",
+                "points": 2,
+            ],
+            "question_2": [
+                "question_type": "multiple_choice",
+                "question": "The next day Maud cycles from Aalten to Dinxperlo. It takes Zi 35 minutes.\nTirsa walks the same distance.",
+                "options": ["1 hour", "1.5 hour", "3.5 hour"],
+                "answer": "1.5",
+                "points": 3,
+            ],
+        ],
         "p17": [
             "img": "question_p17.png",
             "question_1": [
@@ -194,7 +232,10 @@ let dictionary: [String: Any] = [
 
         ],
         "p18": [
-            "fact": "A household uses an average of 95,625 liters of water every year. That results in a water bill of about € 76.50. An average household consists of 2,125 persons.",
+            "fact": """
+                    A household uses an average of 95,625 liters of water every year.\n
+                    That results in a water bill of about € 76.50. An average household consists of 2,125 persons.
+                    """,
             "question_1": [
                 "question_type": "multiple_choice",
                 "question": "Approximately how many households are there?",
@@ -217,7 +258,75 @@ let dictionary: [String: Any] = [
                 "points": 2
             ],
         ],
-        "p19": [],
-        "p21": [],
+        "p19": [
+            "fact": "rule of thumb: 7 pears weigh about 1 kg\npear jam (kg) = 0.95 × number of kg pears",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "Anne has picked 161 pears from her pear tree and is going to make pear jam. How many kilograms of pears does she have?",
+                "answer": 23,
+                "unit": "kg",
+                "points": 2
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "Last year Anne had 126 pears on her pear tree.\nHow many grams of pear jam can she make with that?",
+                "answer": 17100,
+                "unit": "grams",
+                "points": 3
+            ],
+        ],
+        "p20": [
+            "fact": "The rental price for an electric scooter = € 3.50 + number of hours × € 2.50",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": """
+                            Jesper and Amy both rent an electric scooter.\n
+                            How much do they pay together for 4 hours?
+                            """,
+                "answer": 27,
+                "unit": "euro",
+                "points": 2
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": """
+                            The next day they both rent a scooter again.\n
+                            At the end of the day they pay € 62.00.\n
+                            How many hours did they rent the electric scooters that day?
+                            """,
+                "answer": 11,
+                "unit": "hours",
+                "points": 3
+            ],
+        ],
+        "p21": [
+            "img": "question_p21.png",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "fact": """
+                        Han and Birgit want to have the edge around their swimming pool paved with tiles.\n
+                        The paver company provides guidelines on its website for the amount of materials required.
+                        """,
+                "question": "What is the total area of the edge around the pool?",
+                "answer": 42,
+                "unit": "m2",
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "How many tiles are needed?",
+                "answer": 3500,
+                "unit": "tiles",
+                "points": 2
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "How much sand is needed?",
+                "answer": 4.2,
+                "unit": "m3",
+                "points": 2
+            ],
+        ],
     ],
 ]
+
