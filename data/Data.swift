@@ -137,7 +137,29 @@ let dictionary: [String: Any] = [
                 "points": 1
             ],
         ],
-        "p7": [],
+        "p7": [
+            "question 1": [
+                "question_type": "fill_in_the_blank",
+                "question": "1.3 kg + 350 g",
+                "answer": 1650,
+                "unit": "g",
+                "points": 1
+            ],
+            "question 2": [
+                "question_type": "fill_in_the_blank",
+                "question": "3.7 tons + 420 kg",
+                "answer": 4.12,
+                "unit": "tons",
+                "points": 2
+            ],
+            "question 3": [
+                "question_type": "fill_in_the_blank",
+                "question": "0.8 g + 90 mg",
+                "answer": 170,
+                "unit": "mg",
+                "points": 2
+            ],
+        ],
         "p8": [
             "fact": "The annual amount of waste produced per inhabitant in the Netherlands is 490kg.",
             "question_1": [
