@@ -3,11 +3,113 @@ import Foundation
 
 let dictionary: [String: Any] = [
     "skilltree": [
-        "p1": [],
-        "p2": [],
-        "p3": [],
-        "p4": [],
-        "p5": [],
+        "p1": [
+            "img": "question_1.png",
+            "question_type": "connect",
+            "question": "What do the numbers on the map mean?",
+            "options_and_answers": [
+                "13,64": "distance",
+                "17,83": "speed",
+                "6:28": "time",
+                "18": "road number",
+                "2021": "year",
+            ],
+            "points": 1
+        ],
+        "p2": [
+            "question_type": "multiple_choice",
+            "fact": "Select the correct unit",
+            "questions": [
+                "question_a": [
+                    "question": "A cup of coffee contains 200",
+                    "options": ["milliliter", "liter", "kilogram", "gram"],
+                    "answer": "milliliter",
+                    "points": 1
+                ],
+                "question_b": [
+                    "question": "A hamburger costs 200",
+                    "options": ["euro", "euro cent", "gram", "dollar"],
+                    "answer": "euro cent",
+                    "points": 1
+                ],
+                "question_c": [
+                    "question": "The distance between two lanterns is 100",
+                    "options": ["meter", "kilometer", "centimeter", "millimeter"],
+                    "answer": "meter",
+                    "points": 1
+                ],
+                "question_d": [
+                    "question": "A newborn baby elephant weighs 90",
+                    "options": ["kilogram", "gram", "centimeter", "ton"],
+                    "answer": "kilogram",
+                    "points": 1
+                ],
+                "question_e": [
+                    "question": "A tumble dryer dries at 60",
+                    "options": ["degree celsius", "gram", "ampere", "ton"],
+                    "answer": "degree celsius",
+                    "points": 1
+                ]
+            ]
+        ],
+        "p3": [
+            "img": "question_3.png",
+            "question_type": "multiple_choice",
+            "question": "What is the name of this measurement instrument?",
+            "options": ["centimeter", "ruler", "hygrometer", "protractor"],
+            "answer": "ruler",
+            "points": 5
+        ],
+        "p4": [
+            "img": "None",
+            "question_type": "fill_in_the_blank",
+            "question": "Calculate",
+            "questions": [
+                "question_a": [
+                    "first_part": "5 dm + 40 cm + 4 mm = ",
+                    "answer": "904",
+                    "second_part": "mm",
+                    "point": 2
+                ],
+                "question_b": [
+                    "first_part": "2.1 km + 8 hm + 350 dm = ",
+                    "answer": "2935",
+                    "second_part": "m",
+                    "point": 2
+                ],
+                "question_c": [
+                    "first_part": "3.5 dm + 5 cm + 2.5 dm = ",
+                    "answer": "65",
+                    "second_part": "cm",
+                    "point": 1
+                ],
+            ]
+        ],
+        "p5": [
+            "img": "question_5.png",
+            "question_type": "fill_in_the_blank",
+            "fact": """
+                    On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\n
+                    Read the answers to the questions on the thermometers.
+                    """,
+            "questions": [
+                "question_a": [
+                    "first_part": "What temperature 100 in degrees Celsius translate to in degrees Fahrenheit?",
+                    "answer": "212",
+                    "second_part": "°F"
+                ],
+                "question_b": [
+                    "first_part": "What temperature is the left thermometer showing in degrees Celsius?",
+                    "answer": "24",
+                    "second_part": "°C"
+                ],
+                "question_c": [
+                    "first_part": "What is the difference between the number of degrees Celsius and the temperature in Fahrenheit?",
+                    "answer": "32",
+                    "second_part": "degrees"
+                ],
+            ]
+        ],
         "p6": [
             "img": "question_p6.png",
             "question_1":
@@ -115,8 +217,45 @@ let dictionary: [String: Any] = [
                 "points": 2
             ],
         ],
-        "p11": [],
-        "p12": [],
+        "p11": [
+            "fact": "It is 9:15 in London",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "What is the time in Amsterdam?",
+                "answer": "10:15",
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "Shahim takes a plane from Amsterdam to Los Angeles. His plane departures at 14:25. The flight takes 11 hours and 40 minutes. At what time does he arrive in the local timezone?",
+                "answer": "17:05",
+                "points": 4
+            ],
+        ],
+        "p12": [
+            "fact": "Today it is the 7th of July. Orlando leaves in three weeks for a 12 day holiday. The travel days are also part of the holiday.",
+            "question_1": [
+                "question_type": "fill_in_the_blank",
+                "question": "On which day does Orlando leave?",
+                "answer": 28,
+                "unit": "July",
+                "points": 1
+            ],
+            "question_2": [
+                "question_type": "fill_in_the_blank",
+                "question": "On which day does Orlando return home?",
+                "answer": 8,
+                "unit": "August",
+                "points": 2
+            ],
+            "question_3": [
+                "question_type": "fill_in_the_blank",
+                "question": "Indra returned today from a holiday that lasted for 12 days, on which day did she leave?",
+                "answer": 26,
+                "unit": "June",
+                "points": 2
+            ],
+        ],
         "p13": [
             "fact": """
                     An ultra-modern windmill has a capacity of 8 MW and delivers per year\n
