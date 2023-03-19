@@ -14,14 +14,15 @@ struct Trivia: Decodable {
         var id: UUID {
             UUID()
         }
-        var category: String
+        
         var type: String
-        var difficulty: String
+        var img: String?
         var question: String
         var correctAnswer: String
         var incorrectAnswers: [String]
-        
-        // for some of the strings that contain strange characters (markdown)
+        var unit: String
+        var points: Int
+    
         var formattedQuestion: AttributedString {
             do {
                 return try AttributedString(markdown: question)

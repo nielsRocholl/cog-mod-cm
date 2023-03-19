@@ -1,0 +1,465 @@
+[
+    {
+        "type": "multiple_choice",
+        "img": "None",
+        "question": "Select the correct unit: A cup of coffee contains 200",
+        "incorrectAnswers": ["liter", "kilogram", "gram"],
+        "correctAnswer": "milliliter",
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "multiple_choice",
+        "img": "None",
+        "question": "Select the correct unit: A hamburger costs 200",
+        "incorrectAnswers": ["euro", "gram", "dollar"],
+        "correctAnswer": "euro cent",
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "multiple_choice",
+        "img": "None",
+        "question": "Select the correct unit: The distance between two lanterns is 100",
+        "incorrectAnswers": ["kilometer", "centimeter", "millimeter"],
+        "correctAnswer": "meter",
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "multiple_choice",
+        "img": "None",
+        "question": "Select the correct unit: A newborn baby elephant weighs 90",
+        "incorrectAnswers": ["gram", "centimeter", "ton"],
+        "correctAnswer": "kilogram",
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "multiple_choice",
+        "img": "None",
+        "question": "Select the correct unit: A tumble dryer dries at 60",
+        "incorrectAnswers": ["gram", "ampere", "ton"],
+        "correctAnswer": "degree celsius",
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "multiple_choice",
+        "img": "question_3.png",
+        "question": "What is the name of this measurement instrument?",
+        "incorrectAnswers": ["centimeter", "hygrometer", "protractor"],
+        "correctAnswer": "ruler",
+        "unit": "None",
+        "points": 5
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "Calculate 5 dm + 40 cm + 4 mm = ",
+        "correctAnswer": "904",
+        "incorrectAnswers": [],
+        "unit": "mm",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "Calculate 2.1 km + 8 hm + 350 dm = ",
+        "correctAnswer": "2935",
+        "incorrectAnswers": [],
+        "unit": "m",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "Calculate 3.5 dm + 5 cm + 2.5 dm = ",
+        "correctAnswer": "65",
+        "incorrectAnswers": [],
+        "unit": "cm",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_5.png",
+        "question": "On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\nRead the answers to the questions on the thermometers. What temperature 100 in degrees Celsius translate to in degrees Fahrenheit?",
+        "correctAnswer": "212",
+        "incorrectAnswers": [],
+        "unit": "°F",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_5.png",
+        "question": "On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\nRead the answers to the questions on the thermometers. What temperature is the left thermometer showing in degrees Celsius?",
+        "correctAnswer": "24",
+        "incorrectAnswers": [],
+        "unit": "°C",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_5.png",
+        "question": "On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\nRead the answers to the questions on the thermometers. What is the difference between the number of degrees Celsius and the temperature in Fahrenheit?",
+        "correctAnswer": "32",
+        "incorrectAnswers": [],
+        "unit": "degrees",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p6.png",
+        "question": "This traffic sign hangs above the entrance of a tunnel. What is the maximum height?",
+        "correctAnswer": "31",
+        "incorrectAnswers": [],
+        "unit": "dm",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p6.png",
+        "question": "A motor home has a height of 260 cm. A roof box with a height of 0.45 m is attached to this motorhome. What is the height of the camper with the roof box?",
+        "correctAnswer": "3.05",
+        "incorrectAnswers": [],
+        "unit": "m",
+        "points": 2
+    },
+    {
+        "type": "multiple_choice",
+        "img": "question_p6.png",
+        "question": "Can this camper with roof box on it pass under this tunnel?",
+        "incorrectAnswers": ["No"],
+        "correctAnswer": "Yes",
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "1.3 kg + 350 g",
+        "correctAnswer": "1650",
+        "incorrectAnswers": [],
+        "unit": "g",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "3.7 tons + 420 kg",
+        "correctAnswer": "4.12",
+        "incorrectAnswers": [],
+        "unit": "tons",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "0.8 g + 90 mg",
+        "correctAnswer": "170",
+        "incorrectAnswers": [],
+        "unit": "mg",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "The annual amount of waste produced per inhabitant in the Netherlands is 490kg. How many kilograms of waste does a family produce 4 people per year?",
+        "correctAnswer": "1960",
+        "incorrectAnswers": [],
+        "unit": "kg",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "17.3 million people live in the Netherlands.\nHow many million kilograms of waste are produced annually by the inhabitants of the Netherlands?",
+        "correctAnswer": "8477",
+        "incorrectAnswers": [],
+        "unit": "million kg",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "How many tons of waste is that per year?",
+        "correctAnswer": "8477000",
+        "incorrectAnswers": [],
+        "unit": "ton",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "Potting soil weighs 360 kg/m3\n1 m3 = 1000 dm3\n1 dm3 = 1 litre\nHow many kilograms does 1 bag of potting soil weigh?",
+        "correctAnswer": "7.2",
+        "incorrectAnswers": [],
+        "unit": "kg",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "A truck driver transports bags of potting soil with a weight of 7.5 kg per bag.\nZin truck may load a maximum of 7 tons.\nHow many bags of potting soil can the driver load?",
+        "correctAnswer": "933",
+        "incorrectAnswers": [],
+        "unit": "bags",
+        "points": 3
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p10.png",
+        "question": "The schedule shows the opening hours of the Restaurant, the Grand Café and the Liquor Store.\nHow many hours on Thursday is the Grand Café open longer than the Liquor Store?",
+        "correctAnswer": "5.5",
+        "incorrectAnswers": [],
+        "unit": "hours",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p10.png",
+        "question": "How many minutes is the Restaurant open less than the Grand Café on Saturdays?",
+        "correctAnswer": "180",
+        "incorrectAnswers": [],
+        "unit": "minutes",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p10.png",
+        "question": "On how many days was the liquor store open in February 2021 (not a leap year)?",
+        "correctAnswer": "20",
+        "incorrectAnswers": [],
+        "unit": "days",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "It is 9:15 in London. What is the time in Amsterdam?",
+        "correctAnswer": "10:15",
+        "incorrectAnswers": [],
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "None",
+        "question": "Shahim takes a plane from Amsterdam to Los Angeles. His plane departures at 14:25. The flight takes 11 hours and 40 minutes. At what time does he arrive in the local timezone?",
+        "correctAnswer": "17:05",
+        "incorrectAnswers": [],
+        "unit": "None",
+        "points": 4
+    },
+
+    {
+        "type": "fill_in_the_blank",
+        "question": "Today it is the 7th of July. Orlando leaves in three weeks for a 12 day holiday. The travel days are also part of the holiday.\nOn which day does Orlando leave?",
+        "correctAnswer": "28",
+        "incorrectAnswers": [],
+        "unit": "July",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "Today it is the 7th of July. Orlando leaves in three weeks for a 12 day holiday. The travel days are also part of the holiday.\nOn which day does Orlando return home?",
+        "correctAnswer": "8",
+        "incorrectAnswers": [],
+        "unit": "August",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "Today it is the 7th of July. Orlando leaves in three weeks for a 12 day holiday. The travel days are also part of the holiday.\nIndra returned today from a holiday that lasted for 12 days, on which day did she leave?",
+        "correctAnswer": "26",
+        "incorrectAnswers": [],
+        "unit": "June",
+        "points": 2
+    },
+    {
+        "type": "multiple_choice",
+        "question": "An ultra-modern windmill has a capacity of 8 MW and delivers per year\n17.6 million kWh of electricity for 5500 households.\nWhat is the value of the letter M in MW?",
+        "correctAnswer": "1000000",
+        "incorrectAnswers": ["1000", "10000", "100000", "1000000000"],
+        "unit": "None",
+        "points": 2
+    },
+    {
+        "type": "multiple_choice",
+        "question": "An ultra-modern windmill has a capacity of 8 MW and delivers per year\n17.6 million kWh of electricity for 5500 households.\nWhat is kWh the abbreviation for?",
+        "correctAnswer": "Kilowatt hour",
+        "incorrectAnswers": ["Kilowatt", "Kilogram", "Kilometer", "Kilogram per hour"],
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "An ultra-modern windmill has a capacity of 8 MW and delivers per year\n17.6 million kWh of electricity for 5500 households.\nHow much electricity does an average household use per year?",
+        "correctAnswer": "3.2",
+        "incorrectAnswers": [],
+        "unit": "MWh",
+        "points": 0
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "An ultra-modern windmill has a capacity of 8 MW and delivers per year\n17.6 million kWh of electricity for 5500 households.\nA wind farm has 4 ultra-modern wind turbines.\nWhat is the total power of these windmills?",
+        "correctAnswer": "0.032",
+        "incorrectAnswers": [],
+        "unit": "GW",
+        "points": 0
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p14.png",
+        "question": "When copying a folder on the computer, you can see below the graph which part has already copied.\nHow many megabytes are copied in total?",
+        "correctAnswer": "2138.30",
+        "incorrectAnswers": [],
+        "unit": "MB",
+        "points": 3
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p14.png",
+        "question": "How many gigabytes still need to be copied?",
+        "correctAnswer": "1134.30",
+        "incorrectAnswers": [],
+        "unit": "MB",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p15.png",
+        "question": "Joerie needs to drive from groningen to Amsterdam, his average speed is 90 km/h.\nAfter 68 minutes he arrives in Zwolle and takes a break.\nHow many kilometers has he driven?",
+        "correctAnswer": "102",
+        "incorrectAnswers": [],
+        "unit": "km",
+        "points": 3
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p15.png",
+        "question": "How many minutes does the whole trip take?",
+        "correctAnswer": "144",
+        "incorrectAnswers": [],
+        "unit": "minutes",
+        "points": 2
+    },
+    {
+        "type": "multiple_choice",
+        "fact": "Maud and Tirsa make a 55 km bike ride. Along the way, they take two 15-minute breaks. They leave at 10:30 in the morning.",
+        "question": "What time will they arrive approximately?",
+        "correctAnswer": "14:15",
+        "incorrectAnswers": ["15:00", "15:45"],
+        "unit": "None",
+        "points": 2
+    },
+    {
+        "type": "multiple_choice",
+        "question": "Maud and Tirsa make a 55 km bike ride. Along the way, they take two 15-minute breaks. They leave at 10:30 in the morning.\nThe next day Maud cycles from Aalten to Dinxperlo. It takes Zi 35 minutes.\nTirsa walks the same distance.",
+        "correctAnswer": "1.5",
+        "incorrectAnswers": ["1 hour", "3.5 hour"],
+        "unit": "hour",
+        "points": 3
+    },
+    {
+        "type": "multiple_choice",
+        "img": "question_p17.png",
+        "question": "How high is the statue approximately?",
+        "correctAnswer": "6.5 meters",
+        "incorrectAnswers": ["2.5 meters", "3.5 meters", "12 meters"],
+        "unit": "None",
+        "points": 2
+    },
+    {
+        "type": "multiple_choice",
+        "img": "question_p17.png",
+        "question": "How long is the statue approximately?",
+        "correctAnswer": "7 meters",
+        "incorrectAnswers": ["1 meters", "2 meters", "3 meters"],
+        "unit": "None",
+        "points": 3
+    },
+    {
+        "type": "multiple_choice",
+        "question": "A household uses an average of 95,625 liters of water every year.\nThat results in a water bill of about € 76.50. An average household consists of 2,125 persons.\nApproximately how many households are there?",
+        "correctAnswer": "8 million",
+        "incorrectAnswers": ["8000", "80.000", "8 billion"],
+        "unit": "None",
+        "points": 1
+    },
+    {
+        "type": "multiple_choice",
+        "question": "A household uses an average of 95,625 liters of water every year.\nThat results in a water bill of about € 76.50. An average household consists of 2,125 persons.\nHow many cubic meters of water does one Dutch person use on average per year?",
+        "correctAnswer": "45",
+        "incorrectAnswers": ["40", "50", "40.000", "45.000"],
+        "unit": "cubic meters",
+        "points": 2
+    },
+    {
+        "type": "multiple_choice",
+        "question": "A household uses an average of 95,625 liters of water every year.\nThat results in a water bill of about € 76.50. An average household consists of 2,125 persons.\nHow many billion euros is the joint water bill of all people?",
+        "correctAnswer": "600",
+        "incorrectAnswers": ["0.6", "6", "60"],
+        "unit": "billion euros",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "rule of thumb: 7 pears weigh about 1 kg\npear jam (kg) = 0.95 × number of kg pears\nAnne has picked 161 pears from her pear tree and is going to make pear jam. How many kilograms of pears does she have?",
+        "correctAnswer": "23",
+        "incorrectAnswers": [],
+        "unit": "kg",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "rule of thumb: 7 pears weigh about 1 kg\npear jam (kg) = 0.95 × number of kg pears\nLast year Anne had 126 pears on her pear tree.\nHow many grams of pear jam can she make with that?",
+        "correctAnswer": "17100",
+        "incorrectAnswers": [],
+        "unit": "grams",
+        "points": 3
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "The rental price for an electric scooter = € 3.50 + number of hours × € 2.50\nJesper and Amy both rent an electric scooter.\nHow much do they pay together for 4 hours?",
+        "correctAnswer": "27",
+        "incorrectAnswers": [],
+        "unit": "euro",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "question": "The rental price for an electric scooter = € 3.50 + number of hours × € 2.50\nThe next day they both rent a scooter again.\nAt the end of the day they pay € 62.00.\nHow many hours did they rent the electric scooters that day?",
+        "correctAnswer": "11",
+        "incorrectAnswers": [],
+        "unit": "hours",
+        "points": 3
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p21.png",
+        "question": "Han and Birgit want to have the edge around their swimming pool paved with tiles.\nThe paver company provides guidelines on its website for the amount of materials required.\nWhat is the total area of the edge around the pool?",
+        "correctAnswer": "42",
+        "incorrectAnswers": [],
+        "unit": "m2",
+        "points": 1
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p21.png",
+        "question": "Han and Birgit want to have the edge around their swimming pool paved with tiles.\nThe paver company provides guidelines on its website for the amount of materials required.\nHow many tiles are needed?",
+        "correctAnswer": "3500",
+        "incorrectAnswers": [],
+        "unit": "tiles",
+        "points": 2
+    },
+    {
+        "type": "fill_in_the_blank",
+        "img": "question_p21.png",
+        "question": "Han and Birgit want to have the edge around their swimming pool paved with tiles.\nThe paver company provides guidelines on its website for the amount of materials required.\nHow much sand is needed?",
+        "correctAnswer": "4.2",
+        "incorrectAnswers": [],
+        "unit": "m3",
+        "points": 2
+    }
+]

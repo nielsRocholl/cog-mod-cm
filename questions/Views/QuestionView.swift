@@ -46,7 +46,7 @@ struct QuestionView: View {
             }
             
             Button {
-                triviaManager.goToNextQestion()
+                triviaManager.goToNextQuestion()
             } label: {
                 PrimaryButton(text: "Next", background: triviaManager.answerSelected ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.0564, opacity: 0.327))
             }
@@ -59,7 +59,7 @@ struct QuestionView: View {
         .edgesIgnoringSafeArea(.all)
         .background(Color.black)
         // the code on the next line hides the "back" button so that the user cannot go back when they just start the game
-        .navigationBarHidden(true)
+//        .navigationBarHidden(true)
     }
 }
 
