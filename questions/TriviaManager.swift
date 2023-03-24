@@ -4,6 +4,8 @@ import SwiftUI
 class TriviaManager: ObservableObject {
     private(set) var trivia: [Trivia.Result] = []
     @Published private(set) var length = 0
+    @Published private(set) var chapter_length = 0
+    @Published private(set) var chapter_start_idx = 0
     @Published private(set) var index = 0
     @Published private(set) var reachedEnd = false
 
@@ -16,10 +18,20 @@ class TriviaManager: ObservableObject {
     init() {
         Task.init {
             await fetchTrivia()
+
         }
     }
+    
+    public func setChapterLength(_ newValue: Int) {
+        length = newValue
+    }
 
+    public func setChapterStartIdx(_ newValue: Int) {
+        chapter_start_idx = newValue
+    }
+    
     func fetchTrivia() async {
+
         do {
             guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
                 print("Error: data.json file not found")
