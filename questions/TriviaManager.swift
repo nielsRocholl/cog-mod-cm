@@ -4,8 +4,6 @@ import SwiftUI
 class TriviaManager: ObservableObject {
     private(set) var trivia: [Trivia.Result] = []
     @Published private(set) var length = 0
-    @Published private(set) var chapter_length = 0
-    @Published private(set) var chapter_start_idx = 0
     @Published private(set) var index = 0
     @Published private(set) var reachedEnd = false
 
@@ -14,24 +12,16 @@ class TriviaManager: ObservableObject {
     @Published private(set) var answerChoices: [Answer] = []
     @Published private(set) var progress: CGFloat = 0.00
     @Published private(set) var score = 0
+    private var range: Range<Int>
 
-    init() {
+    init(range: Range<Int> = 0..<50) {
+        self.range = range
         Task.init {
             await fetchTrivia()
-
         }
     }
     
-    public func setChapterLength(_ newValue: Int) {
-        length = newValue
-    }
-
-    public func setChapterStartIdx(_ newValue: Int) {
-        chapter_start_idx = newValue
-    }
-    
     func fetchTrivia() async {
-
         do {
             guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
                 print("Error: data.json file not found")
@@ -50,7 +40,7 @@ class TriviaManager: ObservableObject {
                 self.progress = 0.00
                 self.reachedEnd = false
                 
-                self.trivia = decodedData
+                self.trivia = Array(decodedData[range])
                 self.length = self.trivia.count
                 self.setQuestion()
             }

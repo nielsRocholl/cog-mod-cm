@@ -152,57 +152,41 @@ struct ContentView: View {
                             
                             
                             Group {
-                                NavigationLink(destination: QuestionView(levelNumber: 1).environmentObject(triviaManager), label: {
+                                NavigationLink(destination: QuestionView(levelNumber: 1).environmentObject(TriviaManager(range: 1..<8)), label: {
                                     PrimaryButton(text: "1")
                                         .position(x: 160, y: 670)
                                 }).buttonStyle(PlainButtonStyle())
 
-                                NavigationLink(destination: QuestionView(levelNumber: 2).environmentObject(triviaManager), label: {
+                                NavigationLink(destination: QuestionView(levelNumber: 2).environmentObject(TriviaManager(range: 8..<15)), label: {
                                     PrimaryButton(text: "2")
                                         .position(x: 320, y: 570)
                                 }).buttonStyle(PlainButtonStyle())
 
-                                
-//                                NavigationLink {
-//                                    TriviaView()
-//                                        .environmentObject(triviaManager)
-//                                } label: {
-//                                    PrimaryButton(text: "3")
-//                                }
-//                                .position(x: 70, y: 490)
-//
-//                                NavigationLink {
-//                                    TriviaView()
-//                                        .environmentObject(triviaManager)
-//                                } label: {
-//                                    PrimaryButton(text: "4")
-//                                        .position(x: 300, y: 380)
-//                                }
-//
-//                                NavigationLink {
-//                                    TriviaView()
-//                                        .environmentObject(triviaManager)
-//                                } label: {
-//                                    PrimaryButton(text: "5")
-//                                        .position(x: 125, y: 315)
-//                                }
-//
-//                                NavigationLink {
-//                                    TriviaView()
-//                                        .environmentObject(triviaManager)
-//                                } label: {
-//                                    PrimaryButton(text: "6")
-//                                        .position(x: 230, y: 200)
-//                                }
-//
-//                                NavigationLink {
-//                                    TriviaView()
-//                                        .environmentObject(triviaManager)
-//                                } label: {
-//                                    //                                 Image(systemName: "minus.circle")
-//                                    PrimaryButton(text: "7")
-//                                        .position(x: 110, y: 35)
-//                                }
+                                NavigationLink(destination: QuestionView(levelNumber: 3).environmentObject(TriviaManager(range: 15..<22)), label: {
+                                    PrimaryButton(text: "3")
+                                        .position(x: 70, y: 490)
+                                }).buttonStyle(PlainButtonStyle())
+
+                                NavigationLink(destination: QuestionView(levelNumber: 4).environmentObject(TriviaManager(range: 22..<29)), label: {
+                                    PrimaryButton(text: "4")
+                                        .position(x: 300, y: 380)
+                                }).buttonStyle(PlainButtonStyle())
+
+                                NavigationLink(destination: QuestionView(levelNumber: 5).environmentObject(TriviaManager(range: 29..<36)), label: {
+                                    PrimaryButton(text: "5")
+                                        .position(x: 125, y: 315)
+                                }).buttonStyle(PlainButtonStyle())
+
+                                NavigationLink(destination: QuestionView(levelNumber: 6).environmentObject(TriviaManager(range: 36..<43)), label: {
+                                    PrimaryButton(text: "6")
+                                        .position(x: 230, y: 200)
+                                }).buttonStyle(PlainButtonStyle())
+
+                                NavigationLink(destination: QuestionView(levelNumber: 7).environmentObject(TriviaManager(range: 43..<50)), label: {
+                                    PrimaryButton(text: "7")
+                                        .position(x: 110, y: 35)
+                                }).buttonStyle(PlainButtonStyle())
+
                             }
                         }
                     }
