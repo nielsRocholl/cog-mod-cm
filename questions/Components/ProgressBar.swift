@@ -1,10 +1,3 @@
-//
-//  ProgressBar.swift
-//  questions
-//
-//  Created by C. Kyriakides on 08/03/2023.
-//
-
 import SwiftUI
 
 struct ProgressBar: View {
@@ -18,7 +11,7 @@ struct ProgressBar: View {
                 .cornerRadius(10)
             
             Rectangle()
-                .frame(width: progress, height: 4)
+                .frame(width: progress * 350, height: 4) // Multiply progress by the max width
                 .foregroundColor(Color("AccentColor"))
                 .cornerRadius(10)
         }
@@ -28,7 +21,6 @@ struct ProgressBar: View {
 
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBar(progress: 50)
+        ProgressBar(progress: 0.5) // Use a value between 0 and 1 for the progress
     }
 }
-
