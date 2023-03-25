@@ -3,6 +3,10 @@ import SwiftUI
 struct QuestionView: View {
     @EnvironmentObject var triviaManager: TriviaManager
     @State private var userInput = ""
+    @State private var isFillInBlankAnswerCorrect: Bool? = nil
+    @State private var isFillInBlankAnswerSubmitted: Bool = false
+
+
     var levelNumber: Int
 
     var body: some View {
@@ -10,10 +14,10 @@ struct QuestionView: View {
         ZStack {
             if triviaManager.reachedEnd {
                 VStack(spacing: 20) {
-                    Text("Trivia Game")
+                    Text("Level \(levelNumber)")
                             .yellowTitle()
 
-                    Text("Congratulations, you completed the game!")
+                    Text("Congratulations, you completed level \(levelNumber)")
 
                     Text("You scored \(triviaManager.score) out of \(triviaManager.length)")
 
@@ -43,10 +47,26 @@ struct QuestionView: View {
                     ProgressBar(progress: triviaManager.progress)
 
                     VStack(alignment: .leading, spacing: 20) {
+                        // Display the image if it's not "None"
+                        if let imageName = triviaManager.currentImage, imageName != "None" {
+                            Group {
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200, height: 200)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 4))
+                                    .shadow(radius: 10)
+                                    .frame(maxWidth: .infinity) // Center the image
+                                    .padding(.bottom, 20)
+                            }
+                        }
+                        
                         Text(triviaManager.question)
-                                .font(.system(size: 20))
-                                .bold()
-                                .foregroundColor(.gray)
+                            .font(.system(size: 20))
+                            .bold()
+                            .foregroundColor(.gray)
+
 
                         if triviaManager.isMultipleChoice {
                             ForEach(triviaManager.answerChoices, id: \.id) { answer in
@@ -56,18 +76,24 @@ struct QuestionView: View {
                         } else {
                             HStack {
                                 TextField("Enter your answer...", text: $userInput)
-                                        .padding()
-                                        .background(Color(.systemGray6))
-                                        .cornerRadius(8)
-                                        .foregroundColor(.primary)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                    .foregroundColor(.primary)
+
+                                if let isCorrect = isFillInBlankAnswerCorrect {
+                                    Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                        .foregroundColor(isCorrect ? .green : .red)
+                                }
 
                                 if let unit = triviaManager.currentUnit {
                                     Text(unit)
-                                            .font(.system(size: 18))
-                                            .bold()
-                                            .foregroundColor(.gray)
+                                        .font(.system(size: 18))
+                                        .bold()
+                                        .foregroundColor(.gray)
                                 }
                             }
+
                         }
                     }
 
@@ -75,12 +101,21 @@ struct QuestionView: View {
                         if triviaManager.isMultipleChoice {
                             triviaManager.goToNextQuestion()
                         } else {
-                            triviaManager.processFillInBlankAnswer(userInput)
+                            if isFillInBlankAnswerSubmitted {
+                                isFillInBlankAnswerCorrect = nil
+                                isFillInBlankAnswerSubmitted = false
+                                userInput = ""
+                                triviaManager.goToNextQuestion()
+                            } else {
+                                isFillInBlankAnswerCorrect = triviaManager.processFillInBlankAnswer(userInput)
+                                isFillInBlankAnswerSubmitted = true
+                            }
                         }
                     } label: {
-                        PrimaryButton(text: "Next", background: triviaManager.answerSelected || !userInput.isEmpty ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.0564, opacity: 0.327))
+                        PrimaryButton(text: (triviaManager.isMultipleChoice || isFillInBlankAnswerSubmitted) ? "Next" : "Submit", background: triviaManager.answerSelected || !userInput.isEmpty ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.0564, opacity: 0.327))
                     }
-                            .disabled(triviaManager.isMultipleChoice ? !triviaManager.answerSelected : userInput.isEmpty)
+                    .disabled(triviaManager.isMultipleChoice ? !triviaManager.answerSelected : userInput.isEmpty)
+
 
                     Spacer()
 

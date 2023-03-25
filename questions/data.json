@@ -46,7 +46,7 @@
     },
     {
         "type": "multiple_choice",
-        "img": "question_3.png",
+        "img": "question_3",
         "question": "What is the name of this measurement instrument?",
         "incorrectAnswers": ["centimeter", "hygrometer", "protractor"],
         "correctAnswer": "ruler",
@@ -82,7 +82,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_5.png",
+        "img": "question_5",
         "question": "On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\nRead the answers to the questions on the thermometers. What temperature 100 in degrees Celsius translate to in degrees Fahrenheit?",
         "correctAnswer": "212",
         "incorrectAnswers": [],
@@ -91,7 +91,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_5.png",
+        "img": "question_5",
         "question": "On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\nRead the answers to the questions on the thermometers. What temperature is the left thermometer showing in degrees Celsius?",
         "correctAnswer": "24",
         "incorrectAnswers": [],
@@ -100,7 +100,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_5.png",
+        "img": "question_5",
         "question": "On the thermometers you can see the temperature in degrees Celsius and Fahrenheit.\nRead the answers to the questions on the thermometers. What is the difference between the number of degrees Celsius and the temperature in Fahrenheit?",
         "correctAnswer": "32",
         "incorrectAnswers": [],
@@ -109,7 +109,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p6.png",
+        "img": "question_p6",
         "question": "This traffic sign hangs above the entrance of a tunnel. What is the maximum height?",
         "correctAnswer": "31",
         "incorrectAnswers": [],
@@ -118,7 +118,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p6.png",
+        "img": "question_p6",
         "question": "A motor home has a height of 260 cm. A roof box with a height of 0.45 m is attached to this motorhome. What is the height of the camper with the roof box?",
         "correctAnswer": "3.05",
         "incorrectAnswers": [],
@@ -127,7 +127,7 @@
     },
     {
         "type": "multiple_choice",
-        "img": "question_p6.png",
+        "img": "question_p6",
         "question": "Can this camper with roof box on it pass under this tunnel?",
         "incorrectAnswers": ["No"],
         "correctAnswer": "Yes",
@@ -208,7 +208,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p10.png",
+        "img": "question_p10",
         "question": "The schedule shows the opening hours of the Restaurant, the Grand Café and the Liquor Store.\nHow many hours on Thursday is the Grand Café open longer than the Liquor Store?",
         "correctAnswer": "5.5",
         "incorrectAnswers": [],
@@ -217,7 +217,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p10.png",
+        "img": "question_p10",
         "question": "How many minutes is the Restaurant open less than the Grand Café on Saturdays?",
         "correctAnswer": "180",
         "incorrectAnswers": [],
@@ -226,7 +226,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p10.png",
+        "img": "question_p10",
         "question": "On how many days was the liquor store open in February 2021 (not a leap year)?",
         "correctAnswer": "20",
         "incorrectAnswers": [],
@@ -310,7 +310,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p14.png",
+        "img": "question_p14",
         "question": "When copying a folder on the computer, you can see below the graph which part has already copied.\nHow many megabytes are copied in total?",
         "correctAnswer": "2138.30",
         "incorrectAnswers": [],
@@ -319,7 +319,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p14.png",
+        "img": "question_p14",
         "question": "How many gigabytes still need to be copied?",
         "correctAnswer": "1134.30",
         "incorrectAnswers": [],
@@ -328,7 +328,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p15.png",
+        "img": "question_p15",
         "question": "Joerie needs to drive from groningen to Amsterdam, his average speed is 90 km/h.\nAfter 68 minutes he arrives in Zwolle and takes a break.\nHow many kilometers has he driven?",
         "correctAnswer": "102",
         "incorrectAnswers": [],
@@ -337,7 +337,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p15.png",
+        "img": "question_p15",
         "question": "How many minutes does the whole trip take?",
         "correctAnswer": "144",
         "incorrectAnswers": [],
@@ -363,7 +363,7 @@
     },
     {
         "type": "multiple_choice",
-        "img": "question_p17.png",
+        "img": "question_p17",
         "question": "How high is the statue approximately?",
         "correctAnswer": "6.5 meters",
         "incorrectAnswers": ["2.5 meters", "3.5 meters", "12 meters"],
@@ -372,7 +372,7 @@
     },
     {
         "type": "multiple_choice",
-        "img": "question_p17.png",
+        "img": "question_p17",
         "question": "How long is the statue approximately?",
         "correctAnswer": "7 meters",
         "incorrectAnswers": ["1 meters", "2 meters", "3 meters"],
@@ -437,7 +437,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p21.png",
+        "img": "question_p21",
         "question": "Han and Birgit want to have the edge around their swimming pool paved with tiles.\nThe paver company provides guidelines on its website for the amount of materials required.\nWhat is the total area of the edge around the pool?",
         "correctAnswer": "42",
         "incorrectAnswers": [],
@@ -446,7 +446,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p21.png",
+        "img": "question_p21",
         "question": "Han and Birgit want to have the edge around their swimming pool paved with tiles.\nThe paver company provides guidelines on its website for the amount of materials required.\nHow many tiles are needed?",
         "correctAnswer": "3500",
         "incorrectAnswers": [],
@@ -455,7 +455,7 @@
     },
     {
         "type": "fill_in_the_blank",
-        "img": "question_p21.png",
+        "img": "question_p21",
         "question": "Han and Birgit want to have the edge around their swimming pool paved with tiles.\nThe paver company provides guidelines on its website for the amount of materials required.\nHow much sand is needed?",
         "correctAnswer": "4.2",
         "incorrectAnswers": [],

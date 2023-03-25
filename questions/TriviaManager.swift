@@ -20,6 +20,10 @@ class TriviaManager: ObservableObject {
     var currentUnit: String? {
         trivia[index].unit
     }
+    
+    var currentImage: String? {
+        trivia[index].img
+    }
 
     init(range: Range<Int> = 0..<50) {
         self.range = range
@@ -77,15 +81,17 @@ class TriviaManager: ObservableObject {
         answerChoices = currentQuestion.answers.shuffled()
     }
 
-    func processFillInBlankAnswer(_ answer: String) {
+    func processFillInBlankAnswer(_ answer: String) -> Bool {
         let correctAnswer = trivia[index].correctAnswer
-        
+
         if answer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == correctAnswer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
             score += 1
+            return true
         }
-        
-        goToNextQuestion()
+
+        return false
     }
+
 
     func selectAnswer(answer: Answer) {
         answerSelected = true
