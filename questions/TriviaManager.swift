@@ -13,6 +13,13 @@ class TriviaManager: ObservableObject {
     @Published private(set) var progress: CGFloat = 0.00
     @Published private(set) var score = 0
     private var range: Range<Int>
+    var isMultipleChoice: Bool {
+        trivia[index].type == "multiple_choice"
+    }
+
+    var currentUnit: String? {
+        trivia[index].unit
+    }
 
     init(range: Range<Int> = 0..<50) {
         self.range = range
@@ -20,7 +27,7 @@ class TriviaManager: ObservableObject {
             await fetchTrivia()
         }
     }
-    
+
     func fetchTrivia() async {
         do {
             guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
@@ -29,7 +36,7 @@ class TriviaManager: ObservableObject {
             }
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
-            
+
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let decodedData = try decoder.decode([Trivia.Result].self, from: data)
@@ -39,7 +46,7 @@ class TriviaManager: ObservableObject {
                 self.score = 0
                 self.progress = 0.00
                 self.reachedEnd = false
-                
+
                 self.trivia = Array(decodedData[range])
                 self.length = self.trivia.count
                 self.setQuestion()
@@ -48,7 +55,7 @@ class TriviaManager: ObservableObject {
             print("Error fetching trivia: \(error)")
         }
     }
-    
+
     func goToNextQuestion() {
         if index + 1 < length {
             index += 1
@@ -57,7 +64,7 @@ class TriviaManager: ObservableObject {
             reachedEnd = true
         }
     }
-    
+
     func setQuestion() {
         answerSelected = false
 
@@ -69,7 +76,17 @@ class TriviaManager: ObservableObject {
         question = currentQuestion.formattedQuestion
         answerChoices = currentQuestion.answers.shuffled()
     }
-    
+
+    func processFillInBlankAnswer(_ answer: String) {
+        let correctAnswer = trivia[index].correctAnswer
+        
+        if answer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == correctAnswer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
+            score += 1
+        }
+        
+        goToNextQuestion()
+    }
+
     func selectAnswer(answer: Answer) {
         answerSelected = true
         if answer.isCorrect {
