@@ -100,3 +100,4 @@ class TriviaManager: ObservableObject {
         }
     }
 }
+

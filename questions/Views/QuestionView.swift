@@ -8,6 +8,7 @@ struct QuestionView: View {
 
 
     var levelNumber: Int
+    
 
     var body: some View {
 
@@ -44,7 +45,7 @@ struct QuestionView: View {
                             .yellowTitle()
                     Spacer()
 
-                    ProgressBar(progress: triviaManager.progress)
+                    ProgressBar(progress: triviaManager.progress, width: 350, height: 4)
 
                     VStack(alignment: .leading, spacing: 20) {
                         // Display the image if it's not "None"
@@ -57,7 +58,7 @@ struct QuestionView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 4))
                                     .shadow(radius: 10)
-                                    .frame(maxWidth: .infinity) // Center the image
+                                    .frame(maxWidth: .infinity)
                                     .padding(.bottom, 20)
                             }
                         }
