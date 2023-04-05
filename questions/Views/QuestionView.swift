@@ -133,7 +133,6 @@ struct QuestionView: View {
             }
         }.onAppear {
             triviaManager.currentLevel = levelNumber
-//            triviaManager.prepareForLevel(levelNumber)
         }
     }
 }
