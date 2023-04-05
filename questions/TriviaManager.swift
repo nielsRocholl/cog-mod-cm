@@ -30,24 +30,12 @@ class TriviaManager: ObservableObject {
         trivia[index].img
     }
 
-    // Old init
-//    init(range: Range<Int> = 0..<50) {
-//        self.range = range
-//        Task.init {
-//            await fetchTrivia()
-//        }
-//    }
-    
     init() {
-//            range = 0..<50
         }
 
     func prepareForLevel(_ level: Int) {
-//        print("level", self.currentLevel)
         self.currentLevel = level
         self.range = TriviaManager.getRangeForLevel(currentLevel: self.currentLevel)
-//        print("Range B", self.range)
-        print("level", self.currentLevel, "range A", self.range)
 
         Task.init {
             await fetchTrivia()
