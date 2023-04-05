@@ -43,10 +43,12 @@ class TriviaManager: ObservableObject {
         }
 
     func prepareForLevel(_ level: Int) {
-        print("level", self.currentLevel)
-        print("fetching", self.range)
+//        print("level", self.currentLevel)
         self.currentLevel = level
         self.range = TriviaManager.getRangeForLevel(currentLevel: self.currentLevel)
+//        print("Range B", self.range)
+        print("level", self.currentLevel, "range A", self.range)
+
         Task.init {
             await fetchTrivia()
         }
