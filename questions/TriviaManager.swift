@@ -12,7 +12,12 @@ class TriviaManager: ObservableObject {
     @Published private(set) var answerChoices: [Answer] = []
     @Published private(set) var progress: CGFloat = 0.00
     @Published private(set) var score = 0
-    private var range: Range<Int>
+    @Published var levelScores: [CGFloat] = Array(repeating: 0.0, count: 7) // Add this line
+    @Published var currentLevel = 1
+
+    
+    private var range: Range<Int> = 0..<50
+    
     var isMultipleChoice: Bool {
         trivia[index].type == "multiple_choice"
     }
@@ -25,13 +30,28 @@ class TriviaManager: ObservableObject {
         trivia[index].img
     }
 
-    init(range: Range<Int> = 0..<50) {
-        self.range = range
+    // Old init
+//    init(range: Range<Int> = 0..<50) {
+//        self.range = range
+//        Task.init {
+//            await fetchTrivia()
+//        }
+//    }
+    
+    init() {
+//            range = 0..<50
+        }
+
+    func prepareForLevel(_ level: Int) {
+        print("level", self.currentLevel)
+        print("fetching", self.range)
+        self.currentLevel = level
+        self.range = TriviaManager.getRangeForLevel(currentLevel: self.currentLevel)
         Task.init {
             await fetchTrivia()
         }
-    }
-
+        }
+    
     func fetchTrivia() async {
         do {
             guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
@@ -86,6 +106,7 @@ class TriviaManager: ObservableObject {
 
         if answer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == correctAnswer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
             score += 1
+            levelScores[currentLevel-1] = (CGFloat(score) / CGFloat(length) * 100).rounded() / 100
             return true
         }
 
@@ -96,8 +117,16 @@ class TriviaManager: ObservableObject {
     func selectAnswer(answer: Answer) {
         answerSelected = true
         if answer.isCorrect {
+            levelScores[currentLevel-1] = (CGFloat(score) / CGFloat(length) * 100).rounded() / 100
             score += 1
         }
     }
+    
+    static func getRangeForLevel(currentLevel: Int) -> Range<Int> {
+        let startIndex = (currentLevel - 1) * 7
+        let endIndex = startIndex + 7
+        return startIndex..<endIndex
+    }
+    
 }
 

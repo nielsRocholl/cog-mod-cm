@@ -9,6 +9,7 @@ struct QuestionView: View {
 
     var levelNumber: Int
     
+    
 
     var body: some View {
 
@@ -46,6 +47,7 @@ struct QuestionView: View {
                     Spacer()
 
                     ProgressBar(progress: triviaManager.progress, width: 350, height: 4)
+                    
 
                     VStack(alignment: .leading, spacing: 20) {
                         // Display the image if it's not "None"
@@ -58,7 +60,7 @@ struct QuestionView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 4))
                                     .shadow(radius: 10)
-                                    .frame(maxWidth: .infinity)
+                                    .frame(maxWidth: .infinity) // Center the image
                                     .padding(.bottom, 20)
                             }
                         }
@@ -129,6 +131,9 @@ struct QuestionView: View {
                         .edgesIgnoringSafeArea(.all)
                         .background(Color.black)
             }
+        }.onAppear {
+            triviaManager.currentLevel = levelNumber
+//            triviaManager.prepareForLevel(levelNumber)
         }
     }
 }
@@ -136,6 +141,6 @@ struct QuestionView: View {
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionView(levelNumber: 1)
-                .environmentObject(TriviaManager())
+            .environmentObject(TriviaManager())
     }
 }

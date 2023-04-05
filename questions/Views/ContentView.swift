@@ -4,13 +4,12 @@
 //  Created by C. Kyriakides on 08/03/2023.
 //
 import SwiftUI
+import Combine
 
 
 
 struct ContentView: View {
     @StateObject var triviaManager = TriviaManager()
-    @State private var levelProgress: [CGFloat] = [0.2, 0.5, 0.7, 0.3, 0.9, 0.1, 0.6]
-
     
     var body: some View {
         
@@ -148,65 +147,109 @@ struct ContentView: View {
                             }
                             
 
-                            
-                            
                             Group {
-                                NavigationLink(destination: QuestionView(levelNumber: 1).environmentObject(TriviaManager(range: 1..<8)), label: {
-                                           VStack {
-                                               PrimaryButton(text: "1")
-                                               ProgressBar(progress: levelProgress[0], width: 70, height: 8)
-                                           }
-                                           .position(x: 160, y: 670)
-                                       }).buttonStyle(PlainButtonStyle())
+                                NavigationLink(destination: QuestionView(levelNumber: 1).environmentObject(triviaManager), label: {
+                                    VStack {
+                                        PrimaryButton(text: "1")
+                                        ProgressBar(progress: triviaManager.levelScores[0], width: 70, height: 8)
+                                    }
+                                    .position(x: 160, y: 670)
+                                }).buttonStyle(PlainButtonStyle()).onAppear {
+                                    triviaManager.prepareForLevel(1)
+                                }
 
-
-                                NavigationLink(destination: QuestionView(levelNumber: 2).environmentObject(TriviaManager(range: 8..<15)), label: {
+                                NavigationLink(destination: QuestionView(levelNumber: 2).environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "2")
-                                        ProgressBar(progress: levelProgress[1], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[1], width: 70, height: 8)
                                     }
                                     .position(x: 320, y: 570)
-                                }).buttonStyle(PlainButtonStyle())
+                                }).buttonStyle(PlainButtonStyle()).onAppear {
+                                    triviaManager.prepareForLevel(2)
+                                }
 
-                                NavigationLink(destination: QuestionView(levelNumber: 3).environmentObject(TriviaManager(range: 15..<22)), label: {
+                                NavigationLink(destination: QuestionView(levelNumber: 3).environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "3")
-                                        ProgressBar(progress: levelProgress[2], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[2], width: 70, height: 8)
                                     }
                                     .position(x: 70, y: 490)
-                                }).buttonStyle(PlainButtonStyle())
-
-                                NavigationLink(destination: QuestionView(levelNumber: 4).environmentObject(TriviaManager(range: 22..<29)), label: {
+                                }).buttonStyle(PlainButtonStyle()).onAppear {
+                                    triviaManager.prepareForLevel(3)
+                                }
+                                
+                                NavigationLink(destination: QuestionView(levelNumber: 4).environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "4")
-                                        ProgressBar(progress: levelProgress[3], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[3], width: 70, height: 8)
                                     }
                                     .position(x: 300, y: 380)
-                                }).buttonStyle(PlainButtonStyle())
+                                }).buttonStyle(PlainButtonStyle()).onAppear {
+                                    triviaManager.prepareForLevel(4)
+                                }
 
-                                NavigationLink(destination: QuestionView(levelNumber: 5).environmentObject(TriviaManager(range: 29..<36)), label: {
+                                NavigationLink(destination: QuestionView(levelNumber: 5).environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "5")
-                                        ProgressBar(progress: levelProgress[4], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[4], width: 70, height: 8)
                                     }
                                     .position(x: 125, y: 315)
-                                }).buttonStyle(PlainButtonStyle())
+                                }).buttonStyle(PlainButtonStyle()).onAppear {
+                                    triviaManager.prepareForLevel(5)
+                                }
 
-                                NavigationLink(destination: QuestionView(levelNumber: 6).environmentObject(TriviaManager(range: 36..<43)), label: {
+                                NavigationLink(destination: QuestionView(levelNumber: 6).environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "6")
-                                        ProgressBar(progress: levelProgress[5], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[5], width: 70, height: 8)
                                     }
                                     .position(x: 230, y: 200)
-                                }).buttonStyle(PlainButtonStyle())
-
-                                NavigationLink(destination: QuestionView(levelNumber: 7).environmentObject(TriviaManager(range: 43..<50)), label: {
+                                }).buttonStyle(PlainButtonStyle()).onAppear {
+                                    triviaManager.prepareForLevel(6)
+                                }
+                                
+                                NavigationLink(destination: QuestionView(levelNumber: 7).environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "7")
-                                        ProgressBar(progress: levelProgress[6], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[6], width: 70, height: 8)
                                     }
                                     .position(x: 110, y: 35)
-                                }).buttonStyle(PlainButtonStyle())
+                                }).buttonStyle(PlainButtonStyle()).onAppear {
+                                    triviaManager.prepareForLevel(7)
+                                }
+//
+//
+//                                NavigationLink(destination: QuestionView(levelNumber: 4).environmentObject(TriviaManager(range: 22..<29)), label: {
+//                                    VStack {
+//                                        PrimaryButton(text: "4")
+//                                        ProgressBar(progress: levelProgress[3], width: 70, height: 8)
+//                                    }
+//                                    .position(x: 300, y: 380)
+//                                }).buttonStyle(PlainButtonStyle())
+//
+//                                NavigationLink(destination: QuestionView(levelNumber: 5).environmentObject(TriviaManager(range: 29..<36)), label: {
+//                                    VStack {
+//                                        PrimaryButton(text: "5")
+//                                        ProgressBar(progress: levelProgress[4], width: 70, height: 8)
+//                                    }
+//                                    .position(x: 125, y: 315)
+//                                }).buttonStyle(PlainButtonStyle())
+//
+//                                NavigationLink(destination: QuestionView(levelNumber: 6).environmentObject(TriviaManager(range: 36..<43)), label: {
+//                                    VStack {
+//                                        PrimaryButton(text: "6")
+//                                        ProgressBar(progress: levelProgress[5], width: 70, height: 8)
+//                                    }
+//                                    .position(x: 230, y: 200)
+//                                }).buttonStyle(PlainButtonStyle())
+//
+//                                NavigationLink(destination: QuestionView(levelNumber: 7).environmentObject(TriviaManager(range: 43..<50)), label: {
+//                                    VStack {
+//                                        PrimaryButton(text: "7")
+//                                        ProgressBar(progress: levelProgress[6], width: 70, height: 8)
+//                                    }
+//                                    .position(x: 110, y: 35)
+//                                }).buttonStyle(PlainButtonStyle())
                             }
                         }
                     }
