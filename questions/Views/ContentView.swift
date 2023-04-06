@@ -153,7 +153,7 @@ struct ContentView: View {
                                 }, label: {
                                     VStack {
                                         PrimaryButton(text: "1")
-                                        ProgressBar(progress: triviaManager.levelScores[0], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[0], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 160, y: 670)
                                 })
@@ -166,7 +166,7 @@ struct ContentView: View {
                                 }, label: {
                                     VStack {
                                         PrimaryButton(text: "2")
-                                        ProgressBar(progress: triviaManager.levelScores[1], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[1], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 320, y: 570)
                                 })
@@ -178,7 +178,7 @@ struct ContentView: View {
                                         .environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "3")
-                                        ProgressBar(progress: triviaManager.levelScores[2], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[2], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 70, y: 490)
                                 })
@@ -192,7 +192,7 @@ struct ContentView: View {
                                         .environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "4")
-                                        ProgressBar(progress: triviaManager.levelScores[3], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[3], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 300, y: 380)
                                 })
@@ -204,7 +204,7 @@ struct ContentView: View {
                                         .environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "5")
-                                        ProgressBar(progress: triviaManager.levelScores[4], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[4], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 125, y: 315)
                                 })
@@ -218,7 +218,7 @@ struct ContentView: View {
                                         .environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "6")
-                                        ProgressBar(progress: triviaManager.levelScores[5], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[5], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 230, y: 200)
                                 })
@@ -230,7 +230,7 @@ struct ContentView: View {
                                         .environmentObject(triviaManager), label: {
                                     VStack {
                                         PrimaryButton(text: "7")
-                                        ProgressBar(progress: triviaManager.levelScores[6], width: 70, height: 8)
+                                        ProgressBar(progress: triviaManager.levelScores[6], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 110, y: 35)
                                 })

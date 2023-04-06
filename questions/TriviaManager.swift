@@ -24,7 +24,6 @@ class TriviaManager: ObservableObject {
     @Published var lastAnsweredQuestion: [Int: Int] = [:] // Add this line
     // Initialize the max range of the questions
     private var range: Range<Int> = 0..<50
-
     // Check if the current question is MPC
     var isMultipleChoice: Bool {
         trivia[index].type == "multiple_choice"

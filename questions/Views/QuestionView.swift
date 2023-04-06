@@ -45,7 +45,7 @@ struct QuestionView: View {
                             .yellowTitle()
                     Spacer()
 
-                    ProgressBar(progress: triviaManager.progress, width: 350, height: 4)
+                    ProgressBar(progress: triviaManager.progress, width: 350, height: 4, isYellowOnly: true)
 
 
                     VStack(alignment: .leading, spacing: 20) {
