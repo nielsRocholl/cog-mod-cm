@@ -8,8 +8,7 @@ struct QuestionView: View {
 
 
     var levelNumber: Int
-    
-    
+
 
     var body: some View {
 
@@ -21,7 +20,7 @@ struct QuestionView: View {
 
                     Text("Congratulations, you completed level \(levelNumber)")
 
-                    Text("You scored \(triviaManager.score) out of \(triviaManager.length)")
+                    Text("You scored \(triviaManager.levelIndividualScores[levelNumber]) out of \(triviaManager.length)")
 
                     Button {
                         Task.init {
@@ -47,28 +46,28 @@ struct QuestionView: View {
                     Spacer()
 
                     ProgressBar(progress: triviaManager.progress, width: 350, height: 4)
-                    
+
 
                     VStack(alignment: .leading, spacing: 20) {
                         // Display the image if it's not "None"
                         if let imageName = triviaManager.currentImage, imageName != "None" {
                             Group {
                                 Image(imageName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 200, height: 200)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 4))
-                                    .shadow(radius: 10)
-                                    .frame(maxWidth: .infinity) // Center the image
-                                    .padding(.bottom, 20)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 200, height: 200)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 4))
+                                        .shadow(radius: 10)
+                                        .frame(maxWidth: .infinity) // Center the image
+                                        .padding(.bottom, 20)
                             }
                         }
-                        
+
                         Text(triviaManager.question)
-                            .font(.system(size: 20))
-                            .bold()
-                            .foregroundColor(.gray)
+                                .font(.system(size: 20))
+                                .bold()
+                                .foregroundColor(.gray)
 
 
                         if triviaManager.isMultipleChoice {
@@ -79,21 +78,21 @@ struct QuestionView: View {
                         } else {
                             HStack {
                                 TextField("Enter your answer...", text: $userInput)
-                                    .padding()
-                                    .background(Color(.systemGray6))
-                                    .cornerRadius(8)
-                                    .foregroundColor(.primary)
+                                        .padding()
+                                        .background(Color(.systemGray6))
+                                        .cornerRadius(8)
+                                        .foregroundColor(.primary)
 
                                 if let isCorrect = isFillInBlankAnswerCorrect {
                                     Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                                        .foregroundColor(isCorrect ? .green : .red)
+                                            .foregroundColor(isCorrect ? .green : .red)
                                 }
 
                                 if let unit = triviaManager.currentUnit {
                                     Text(unit)
-                                        .font(.system(size: 18))
-                                        .bold()
-                                        .foregroundColor(.gray)
+                                            .font(.system(size: 18))
+                                            .bold()
+                                            .foregroundColor(.gray)
                                 }
                             }
 
@@ -117,7 +116,7 @@ struct QuestionView: View {
                     } label: {
                         PrimaryButton(text: (triviaManager.isMultipleChoice || isFillInBlankAnswerSubmitted) ? "Next" : "Submit", background: triviaManager.answerSelected || !userInput.isEmpty ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.0564, opacity: 0.327))
                     }
-                    .disabled(triviaManager.isMultipleChoice ? !triviaManager.answerSelected : userInput.isEmpty)
+                            .disabled(triviaManager.isMultipleChoice ? !triviaManager.answerSelected : userInput.isEmpty)
 
 
                     Spacer()
@@ -131,15 +130,16 @@ struct QuestionView: View {
                         .edgesIgnoringSafeArea(.all)
                         .background(Color.black)
             }
-        }.onAppear {
-            triviaManager.currentLevel = levelNumber
         }
+                .onAppear {
+                    triviaManager.currentLevel = levelNumber
+                }
     }
 }
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionView(levelNumber: 1)
-            .environmentObject(TriviaManager())
+                .environmentObject(TriviaManager())
     }
 }
