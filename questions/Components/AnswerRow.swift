@@ -58,3 +58,4 @@ struct AnswerRow_Previews: PreviewProvider {
             .environmentObject(TriviaManager())
     }
 }
+
