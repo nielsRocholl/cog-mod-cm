@@ -13,21 +13,28 @@ struct QuestionView: View {
     var body: some View {
 
         ZStack {
-            if triviaManager.reachedEnd {
+            if triviaManager.reachedEnd[levelNumber - 1] {
                 VStack(spacing: 20) {
                     Text("Level \(levelNumber)")
                             .yellowTitle()
 
-                    Text("Congratulations, you completed level \(levelNumber)")
+                    if triviaManager.levelIndividualScores[levelNumber - 1] == triviaManager.length {
+                        Text("Congratulations, you have mastered level \(levelNumber)!")
+                    } else {
+                        Text("Congratulations, you completed level \(levelNumber)")
+                    }
 
-                    Text("You scored \(triviaManager.levelIndividualScores[levelNumber]) out of \(triviaManager.length)")
+                    Text("You scored \(triviaManager.levelIndividualScores[levelNumber - 1]) out of \(triviaManager.length)")
 
-                    Button {
-                        Task.init {
-                            await triviaManager.fetchTrivia()
+                    if triviaManager.levelIndividualScores[levelNumber - 1] != triviaManager.length {
+                        Button {
+                            Task.init {
+//                                await triviaManager.fetchTrivia()
+                                triviaManager.prepareForLevel(levelNumber)
+                            }
+                        } label: {
+                            PrimaryButton(text: "Play again")
                         }
-                    } label: {
-                        PrimaryButton(text: "Play again")
                     }
                 }
                         .foregroundColor(Color("AccentColor"))
@@ -137,9 +144,3 @@ struct QuestionView: View {
     }
 }
 
-struct QuestionView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionView(levelNumber: 1)
-                .environmentObject(TriviaManager())
-    }
-}

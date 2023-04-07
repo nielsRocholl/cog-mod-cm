@@ -45,7 +45,7 @@ struct AnswerRow: View {
         .onTapGesture {
             if !triviaManager.answerSelected {
                 isSelected = true
-                triviaManager.selectAnswer(answer: answer)
+                triviaManager.processMPCAnswer(answer: answer)
             }
         }
     }

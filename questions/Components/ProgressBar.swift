@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct ProgressBar: View {
-    var progress: CGFloat
-    var width: CGFloat
-    var height: CGFloat // Add a height parameter
-    var isYellowOnly: Bool // Add a new boolean property
+    var progress: CGFloat // progress of the progress bar
+    var width: CGFloat // width of the progress bar
+    var height: CGFloat // height of the progress bar
+    var isYellowOnly: Bool // color of the progress bar
 
     init(progress: CGFloat, width: CGFloat, height: CGFloat, isYellowOnly: Bool = false) {
         self.progress = progress
