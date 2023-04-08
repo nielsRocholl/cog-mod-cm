@@ -1,37 +1,67 @@
 import Foundation
 import SwiftUI
 
+
 class TriviaManager: ObservableObject {
     private(set) var trivia: [Trivia.Result] = []
     @Published private(set) var length = 0
     @Published private(set) var index = 0
-    @Published private(set) var reachedEnd = false
-
     @Published private(set) var answerSelected = false
     @Published private(set) var question: AttributedString = ""
+    // used for MPC answers
     @Published private(set) var answerChoices: [Answer] = []
+    // used to compute the percentage of correct question of a given level
     @Published private(set) var progress: CGFloat = 0.00
-    @Published private(set) var score = 0
-    private var range: Range<Int>
+    // array filled with floats that represent the percentage of correct questions per level
+    @Published var levelScores: [CGFloat] = Array(repeating: 0.0, count: 7)
+    // array filled with integers that represent the number of correct questions per level
+    @Published var levelIndividualScores: [Int] = Array(repeating: 0, count: 7)
+    // array filled with bools that check if the level end is reached
+    @Published private(set) var reachedEnd: [Bool] = Array(repeating: false, count: 7) // Update this line
+    // sets the current level
+    @Published var currentLevel = 1
+    // keeps track of the last questions you answered incorrectly
+    @Published var lastIncorrectlyAnswered: [[Int]] = Array(repeating: [], count: 7)
+    // keeps track of the questions you answered correctly
+    @Published var lastCorrectlyAnswered: [[Int]] = Array(repeating: [], count: 7)
+    // Initialize the max range of the questions
+    private var range: Range<Int> = 0..<50
+    // Check if the current question is MPC
     var isMultipleChoice: Bool {
         trivia[index].type == "multiple_choice"
     }
-
+    // load the unit of the current question, can be "None" it he question has no unit
     var currentUnit: String? {
         trivia[index].unit
     }
-    
+    // load the name of the current image (if it exists), can be "" (empty string)
     var currentImage: String? {
         trivia[index].img
     }
+    // Initilize TriviaManager
+    init() {
 
-    init(range: Range<Int> = 0..<50) {
-        self.range = range
-        Task.init {
-            await fetchTrivia()
-        }
     }
 
+    // Used to update the TriviaManager variavles according to the current level
+    func prepareForLevel(_ level: Int) {
+            self.currentLevel = level
+            self.range = TriviaManager.getRangeForLevel(currentLevel: self.currentLevel)
+            self.reachedEnd[currentLevel - 1] = (levelIndividualScores[currentLevel - 1] == range.count)
+
+            // Update the index and clear the lastIncorrectlyAnswered sublist for the current level
+            if lastIncorrectlyAnswered[currentLevel - 1].isEmpty {
+                self.index = 0
+            } else {
+                self.index = lastIncorrectlyAnswered[currentLevel - 1][0]
+            }
+            Task.init {
+                await fetchTrivia()
+            }
+        }
+
+
+    // Load the question data from the json file
     func fetchTrivia() async {
         do {
             guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
@@ -46,11 +76,7 @@ class TriviaManager: ObservableObject {
             let decodedData = try decoder.decode([Trivia.Result].self, from: data)
 
             DispatchQueue.main.sync {
-                self.index = 0
-                self.score = 0
-                self.progress = 0.00
-                self.reachedEnd = false
-
+                self.reachedEnd[currentLevel - 1] = (levelIndividualScores[currentLevel - 1] == range.count) // Update this line
                 self.trivia = Array(decodedData[range])
                 self.length = self.trivia.count
                 self.setQuestion()
@@ -60,14 +86,25 @@ class TriviaManager: ObservableObject {
         }
     }
 
+    // Go to next question of a given level
     func goToNextQuestion() {
         if index + 1 < length {
             index += 1
-            setQuestion()
+            // Skip questions that have already been answered correctly
+            while lastCorrectlyAnswered[currentLevel - 1].contains(index) && index + 1 <= length {
+                index += 1
+            }
+            if index >= length {
+                reachedEnd[currentLevel - 1] = true
+            } else {
+                setQuestion()
+            }
         } else {
-            reachedEnd = true
+            reachedEnd[currentLevel - 1] = true
         }
     }
+
+
 
     func setQuestion() {
         answerSelected = false
@@ -85,18 +122,57 @@ class TriviaManager: ObservableObject {
         let correctAnswer = trivia[index].correctAnswer
 
         if answer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == correctAnswer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
-            score += 1
+            levelIndividualScores[currentLevel - 1] += 1
+            updateLevelScore()
+            
+            // if current question is in lastIncorrectlyAnswered, but is now answered correctly, then remove it from the list
+            if let currentIndex = lastIncorrectlyAnswered[currentLevel - 1].firstIndex(of: index) {
+                lastIncorrectlyAnswered[currentLevel - 1].remove(at: currentIndex)
+            }
+            // add question to lastCorrectlyAnswered if correctly answered and not already in there
+            if !lastCorrectlyAnswered[currentLevel - 1].contains(index) {
+                    lastCorrectlyAnswered[currentLevel - 1].append(index)
+            }
             return true
         }
-
+        // if question is answered incorrectly and not in lastIncorrectlyAnswered, add it
+        else if !lastIncorrectlyAnswered[currentLevel - 1].contains(index){
+            lastIncorrectlyAnswered[currentLevel - 1].append(index)
+            return false
+        }
         return false
     }
 
 
-    func selectAnswer(answer: Answer) {
+    func processMPCAnswer(answer: Answer) {
         answerSelected = true
         if answer.isCorrect {
-            score += 1
+            levelIndividualScores[currentLevel - 1] += 1
+            updateLevelScore()
+
+            // if current question is in lastIncorrectlyAnswered, but is now answered correctly, then remove it from the list
+            if let currentIndex = lastIncorrectlyAnswered[currentLevel - 1].firstIndex(of: index) {
+                lastIncorrectlyAnswered[currentLevel - 1].remove(at: currentIndex)
+            }
+            // add question to lastCorrectlyAnswered if correctly answered and not already in there
+            if !lastCorrectlyAnswered[currentLevel - 1].contains(index) {
+                    lastCorrectlyAnswered[currentLevel - 1].append(index)
+            }
+        }
+        // if question is answered incorrectly and not in lastIncorrectlyAnswered, add it
+        else if !lastIncorrectlyAnswered[currentLevel - 1].contains(index){
+            lastIncorrectlyAnswered[currentLevel - 1].append(index)
         }
     }
+
+    func updateLevelScore() {
+        levelScores[currentLevel - 1] = (CGFloat(levelIndividualScores[currentLevel - 1]) / CGFloat(length) * 100).rounded() / 100
+    }
+
+    static func getRangeForLevel(currentLevel: Int) -> Range<Int> {
+        let startIndex = (currentLevel - 1) * 4
+        let endIndex = startIndex + 4
+        return startIndex..<endIndex
+    }
+    
 }

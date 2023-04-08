@@ -22,6 +22,8 @@ struct Trivia: Decodable {
         var incorrectAnswers: [String]
         var unit: String
         var points: Int
+//        var isAnsweredCorrectly: Bool = false
+
     
         var formattedQuestion: AttributedString {
             do {

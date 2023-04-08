@@ -1,26 +1,44 @@
 import SwiftUI
 
 struct ProgressBar: View {
-    var progress: CGFloat
-    
+    var progress: CGFloat // progress of the progress bar
+    var width: CGFloat // width of the progress bar
+    var height: CGFloat // height of the progress bar
+    var isYellowOnly: Bool // color of the progress bar
+
+    init(progress: CGFloat, width: CGFloat, height: CGFloat, isYellowOnly: Bool = false) {
+        self.progress = progress
+        self.width = width
+        self.height = height
+        self.isYellowOnly = isYellowOnly
+    }
+
     var body: some View {
         ZStack(alignment: .leading) {
             Rectangle()
-                .frame(maxWidth: 350, maxHeight: 4)
-                .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.564, opacity: 0.327))
-                .cornerRadius(10)
-            
+                    .frame(maxWidth: width, maxHeight: height)
+                    .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.500, opacity: 0.800))
+                    .cornerRadius(10)
+
             Rectangle()
-                .frame(width: progress * 350, height: 4) // Multiply progress by the max width
-                .foregroundColor(Color("AccentColor"))
-                .cornerRadius(10)
+                    .frame(width: progress * width, height: height)
+                    .foregroundColor(progressColor(for: progress))
+                    .cornerRadius(10)
         }
     }
 
-}
-
-struct ProgressBar_Previews: PreviewProvider {
-    static var previews: some View {
-        ProgressBar(progress: 0.5) // Use a value between 0 and 1 for the progress
+    func progressColor(for progress: CGFloat) -> Color {
+        if isYellowOnly {
+            return .yellow
+        } else {
+            if progress < 1 / 3 {
+                return .red
+            } else if
+                    progress < 2 / 3 {
+                return .yellow
+            } else {
+                return .green
+            }
+        }
     }
 }
