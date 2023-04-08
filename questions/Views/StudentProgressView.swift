@@ -39,13 +39,12 @@ struct StudentProgressView: View {
 
                         Spacer()
 
-                        Text("\(triviaManager.levelScores[level] * 100, specifier: "%.0f")%")
-                            .font(.body)
-                            .bold()
+                        SmallProgressCircleView(progress: CGFloat(triviaManager.levelScores[level]), passed: triviaManager.levelScores[level] > 0.5)
                     }
                     .padding(.top, 5)
                     .padding(.horizontal)
                 }
+
 
             }
                         
@@ -153,3 +152,42 @@ struct ProgressCircleView: View {
     }
 }
 
+struct SmallProgressCircleView: View {
+    var progress: CGFloat
+    var passed: Bool
+
+    @State private var animatedProgress: CGFloat = 0.0
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 2)
+                .opacity(0.3)
+                .foregroundColor(passed ? .green : .red)
+
+            Circle()
+                .trim(from: 0.0, to: animatedProgress)
+                .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
+                .foregroundColor(passed ? .green : .red)
+                .rotationEffect(Angle(degrees: 270.0))
+                .onAppear {
+                    Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
+                        withAnimation(.linear(duration: 0.05)) {
+                            if animatedProgress < progress {
+                                animatedProgress += 0.05
+                            } else {
+                                timer.invalidate()
+                            }
+                        }
+                    }
+                }
+
+            Text("\(Int(animatedProgress * 100))%")
+                .font(.system(size: 7))
+                .bold()
+                .foregroundColor(passed ? .green : .red)
+        }
+        .frame(width: 25, height: 25)
+        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
+    }
+}
