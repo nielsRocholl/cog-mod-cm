@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "question_5.png",
+      "filename" : "verhaal.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "level1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

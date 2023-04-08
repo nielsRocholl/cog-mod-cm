@@ -29,11 +29,16 @@ struct StudentProgressView: View {
                 
                 ForEach(triviaManager.levelScores.indices, id: \.self) { level in
                     HStack {
-                        Text("\(level + 1) \(levelNames()[level]):")
+                        Image("level\(level + 1)")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+
+                        Text("§\(level + 1) \(levelNames()[level]):")
                             .font(.body)
-                        
+
                         Spacer()
-                        
+
                         Text("\(triviaManager.levelScores[level] * 100, specifier: "%.0f")%")
                             .font(.body)
                             .bold()
@@ -41,6 +46,7 @@ struct StudentProgressView: View {
                     .padding(.top, 5)
                     .padding(.horizontal)
                 }
+
             }
                         
 

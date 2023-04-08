@@ -24,7 +24,7 @@ struct ContentView: View {
                     GeometryReader { geo in
                         ZStack {
 
-                            Image("Wallpaper")
+                            Image("Wallpapernew")
                                     .resizable()
                                     .scaledToFit()
                                     .aspectRatio(contentMode: .fill)
@@ -146,24 +146,24 @@ struct ContentView: View {
 
                             }
 
-
                             Group {
                                 NavigationLink(destination: QuestionView(levelNumber: 1).environmentObject(triviaManager).onAppear {
                                     triviaManager.prepareForLevel(1)
                                 }, label: {
                                     VStack {
-                                        PrimaryButton(text: "1")
+                                        ImageButton(imageName: "level1", size: 55, imagePadding: 4)
                                         ProgressBar(progress: triviaManager.levelScores[0], width: 70, height: 8, isYellowOnly: false)
                                     }
-                                            .position(x: 160, y: 670)
+                                        .position(x: 160, y: 670)
                                 })
-                                        .buttonStyle(PlainButtonStyle())
+                                    .buttonStyle(PlainButtonStyle())
+
 
                                 NavigationLink(destination: QuestionView(levelNumber: 2).environmentObject(triviaManager).onAppear {
                                     triviaManager.prepareForLevel(2)
                                 }, label: {
                                     VStack {
-                                        PrimaryButton(text: "2")
+                                        ImageButton(imageName: "level2", size: 55, imagePadding: 6)
                                         ProgressBar(progress: triviaManager.levelScores[1], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 320, y: 570)
@@ -175,7 +175,7 @@ struct ContentView: View {
                                             triviaManager.prepareForLevel(3)
                                         }, label: {
                                     VStack {
-                                        PrimaryButton(text: "3")
+                                        ImageButton(imageName: "level3", size: 55, imagePadding: 3)
                                         ProgressBar(progress: triviaManager.levelScores[2], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 70, y: 490)
@@ -187,7 +187,7 @@ struct ContentView: View {
                                             triviaManager.prepareForLevel(4)
                                         }, label: {
                                     VStack {
-                                        PrimaryButton(text: "4")
+                                        ImageButton(imageName: "level4", size: 55, imagePadding: 5)
                                         ProgressBar(progress: triviaManager.levelScores[3], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 300, y: 380)
@@ -197,7 +197,7 @@ struct ContentView: View {
                                 NavigationLink(destination: QuestionView(levelNumber: 5)
                                         .environmentObject(triviaManager), label: {
                                     VStack {
-                                        PrimaryButton(text: "5")
+                                        ImageButton(imageName: "level5", size: 55, imagePadding: 2)
                                         ProgressBar(progress: triviaManager.levelScores[4], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 125, y: 315)
@@ -211,7 +211,7 @@ struct ContentView: View {
                                             triviaManager.prepareForLevel(6)
                                         }, label: {
                                     VStack {
-                                        PrimaryButton(text: "6")
+                                        ImageButton(imageName: "level6", size: 55, imagePadding: 2)
                                         ProgressBar(progress: triviaManager.levelScores[5], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 230, y: 200)
@@ -223,7 +223,7 @@ struct ContentView: View {
                                             triviaManager.prepareForLevel(5)
                                         }, label: {
                                     VStack {
-                                        PrimaryButton(text: "7")
+                                        ImageButton(imageName: "level7", size: 55, imagePadding: 2)
                                         ProgressBar(progress: triviaManager.levelScores[6], width: 70, height: 8, isYellowOnly: false)
                                     }
                                             .position(x: 110, y: 35)
@@ -249,13 +249,6 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.all)
                 .background(Color(.black))
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
