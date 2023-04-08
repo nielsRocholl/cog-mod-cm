@@ -232,9 +232,19 @@ struct ContentView: View {
                             }
                         }
                     }
+                    NavigationLink(destination: StudentProgressView(triviaManager: triviaManager)) {
+                         Text("Your Progress")
+                             .font(.headline)
+                             .padding(.vertical, 8)
+                             .padding(.horizontal, 12)
+                             .background(RoundedRectangle(cornerRadius: 8).fill(Color.accentColor))
+                             .foregroundColor(.white)
+                             .padding(.horizontal)
+                     }
                 }
-
+    
             }
+
         }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.all)

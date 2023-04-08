@@ -40,7 +40,7 @@ class TriviaManager: ObservableObject {
     }
     // Initilize TriviaManager
     init() {
-
+        selectRandomStudentScores()
     }
 
     // Used to update the TriviaManager variavles according to the current level
@@ -166,7 +166,10 @@ class TriviaManager: ObservableObject {
     }
 
     func updateLevelScore() {
-        levelScores[currentLevel - 1] = (CGFloat(levelIndividualScores[currentLevel - 1]) / CGFloat(length) * 100).rounded() / 100
+        let newScore = (CGFloat(levelIndividualScores[currentLevel - 1]) / CGFloat(length) * 100).rounded() / 100
+        if newScore > levelScores[currentLevel - 1] {
+            levelScores[currentLevel - 1] = newScore
+        }
     }
 
     static func getRangeForLevel(currentLevel: Int) -> Range<Int> {
@@ -175,4 +178,24 @@ class TriviaManager: ObservableObject {
         return startIndex..<endIndex
     }
     
+    func selectRandomStudentScores() {
+            let initialTestResults = InitialTestResults()
+            let studentScores = [initialTestResults.student1, initialTestResults.student2, initialTestResults.student3, initialTestResults.student4, initialTestResults.student5, initialTestResults.student6, initialTestResults.student7, initialTestResults.student8]
+            
+            if let randomStudentScores = studentScores.randomElement() {
+                levelScores = randomStudentScores.map { CGFloat($0) }
+            }
+        }
+    
+}
+
+struct InitialTestResults{
+    let student1: [Double] = [1.0, 0.76, 0.9, 0.67, 0.4, 0.52, 0.24]
+    let student2: [Double] = [1.0, 0.67, 0.62, 0.0, 0.24, 0.33, 0.1]
+    let student3: [Double] = [1.0, 0.95, 0.67, 0.0, 0.81, 0.19, 0.24]
+    let student4: [Double] = [1.0, 0.81, 0.48, 0.1, 0.29, 0.67, 0.14]
+    let student5: [Double] = [1.0, 0.19, 0.19, 0.0, 0.05, 0.0, 0.05]
+    let student6: [Double] = [1.0, 0.48, 0.14, 0.0, 0.1, 0.14, 0.0]
+    let student7: [Double] = [1.0, 0.81, 0.52, 0.0, 0.29, 0.43, 0.05]
+    let student8: [Double] = [1.0, 0.38, 0.67, 0.0, 0.29, 0.67, 0.1]
 }
