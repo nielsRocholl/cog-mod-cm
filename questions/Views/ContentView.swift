@@ -9,7 +9,7 @@ import Combine
 
 
 struct ContentView: View {
-    @StateObject var triviaManager = TriviaManager()
+    @StateObject var cognitiveModel = CognitiveModel()
 
     var body: some View {
 
@@ -23,216 +23,66 @@ struct ContentView: View {
 
                     GeometryReader { geo in
                         ZStack {
-
+                            
                             Image("Wallpapernew")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .aspectRatio(contentMode: .fill)
-                                    .edgesIgnoringSafeArea(.all)
-                                    .frame(width: geo.size.width, height:
-                                    geo.size.height, alignment: .center)
-                                    .opacity(1.0)
-
-                            // I put this here to group some of the arguments in the "NavigationView" struct. Apparently only 10 views max are allowed in SwiftUI and I was getting an error
+                                .resizable()
+                                .scaledToFit()
+                                .aspectRatio(contentMode: .fill)
+                                .edgesIgnoringSafeArea(.all)
+                                .frame(width: geo.size.width, height:
+                                        geo.size.height, alignment: .center)
+                                .opacity(1.0)
+                            
+                            // More than 10 views gives error, we resolve this by creating sub groups
                             Group {
-
-                                // Line from level 1 to 2
-                                Path { path in
-                                    path.move(to: CGPoint(x: 180, y: 660)) // from
-                                    path.addLine(to: CGPoint(x: 298, y: 580)) // to
+                                Group {
+                                    LineView(startPoint: CGPoint(x: 180, y: 660), endPoint: CGPoint(x: 298, y: 580))
+                                    LineView(startPoint: CGPoint(x: 300, y: 565), endPoint: CGPoint(x: 90, y: 495))
+                                    LineView(startPoint: CGPoint(x: 318, y: 550), endPoint: CGPoint(x: 298, y: 390))
+                                    LineView(startPoint: CGPoint(x: 80, y: 490), endPoint: CGPoint(x: 225, y: 220))
+                                    LineView(startPoint: CGPoint(x: 65, y: 490), endPoint: CGPoint(x: 120, y: 330))
+                                    LineView(startPoint: CGPoint(x: 310, y: 390), endPoint: CGPoint(x: 240, y: 220))
+                                    LineView(startPoint: CGPoint(x: 125, y: 300), endPoint: CGPoint(x: 110, y: 50))
+                                    LineView(startPoint: CGPoint(x: 220, y: 185), endPoint: CGPoint(x: 130, y: 43))
                                 }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Line from level 2 to 3
-                                Path { path in
-                                    path.move(to: CGPoint(x: 300, y: 565)) // from
-                                    path.addLine(to: CGPoint(x: 90, y: 495)) // to
+                                Group {
+                                    ArrowheadView(position: CGPoint(x: 200, y: 532), rotation: 110)
+                                    ArrowheadView(position: CGPoint(x: 309, y: 480), rotation: 173)
+                                    ArrowheadView(position: CGPoint(x: 96, y: 400), rotation: 200)
+                                    ArrowheadView(position: CGPoint(x: 166, y: 330), rotation: 205)
+                                    ArrowheadView(position: CGPoint(x: 269, y: 290), rotation: 160)
+                                    ArrowheadView(position: CGPoint(x: 230, y: 626), rotation: 240)
+                                    ArrowheadView(position: CGPoint(x: 119, y: 200), rotation: 178)
+                                    ArrowheadView(position: CGPoint(x: 178, y: 120), rotation: 150)
                                 }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Line from level 2 to 4
-                                Path { path in
-                                    path.move(to: CGPoint(x: 318, y: 550)) // from
-                                    path.addLine(to: CGPoint(x: 298, y: 390)) // to
-                                }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Line from level 3 to 6
-                                Path { path in
-                                    path.move(to: CGPoint(x: 80, y: 490)) // from
-                                    path.addLine(to: CGPoint(x: 225, y: 220)) // to
-                                }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Line from level 3 to 5
-                                Path { path in
-                                    path.move(to: CGPoint(x: 65, y: 490)) // from
-                                    path.addLine(to: CGPoint(x: 120, y: 330)) // to
-                                }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Line from level 4 to 6
-                                Path { path in
-                                    path.move(to: CGPoint(x: 310, y: 390)) // from
-                                    path.addLine(to: CGPoint(x: 240, y: 220)) // to
-                                }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Line from level 5 to 7
-                                Path { path in
-                                    path.move(to: CGPoint(x: 125, y: 300)) // from
-                                    path.addLine(to: CGPoint(x: 110, y: 50)) // to
-                                }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Line from level 6 to 7
-                                Path { path in
-                                    path.move(to: CGPoint(x: 220, y: 185)) // from
-                                    path.addLine(to: CGPoint(x: 130, y: 43)) // to
-                                }
-                                        .stroke(.black, lineWidth: 3)
-
-                                // Add here the other arrow heads but careful because the code breaks
-                                ZStack {
-                                    // Arrowhead 2 to 3
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(110), anchor: .center)
-                                            .position(x: 200, y: 532)
-
-                                    // Arrowhead 2 to 4
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(173), anchor: .center)
-                                            .position(x: 309, y: 480)
-
-                                    // Arrowhead 3 to 5
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(200), anchor: .center)
-                                            .position(x: 96, y: 400)
-
-                                    // Arrowhead 3 to 6
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(205), anchor: .center)
-                                            .position(x: 166, y: 330)
-
-                                    // Arrowhead 4 to 6
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(160), anchor: .center)
-                                            .position(x: 269, y: 290)
-
-                                    // Arrowhead 1 to 2
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(240), anchor: .center)
-                                            .position(x: 230, y: 626)
-
-                                    // Arrowhead 5 to 7
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(178), anchor: .center)
-                                            .position(x: 119, y: 200)
-
-                                    // Arrowhead 6 to 7
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.system(size: 20.0))
-                                            .rotationEffect(.degrees(150), anchor: .center)
-                                            .position(x: 178, y: 120)
-                                }
-
-
+                            }
+                            
+                            Group {
+                                LevelButton(levelNumber: 1, size: 55, imagePadding: 4, position: CGPoint(x: 160, y: 670))
+                                    .environmentObject(cognitiveModel)
+                                
+                                LevelButton(levelNumber: 2, size: 55, imagePadding: 6, position: CGPoint(x: 320, y: 570))
+                                    .environmentObject(cognitiveModel)
+                                
+                                LevelButton(levelNumber: 3, size: 55, imagePadding: 3, position: CGPoint(x: 70, y: 490))
+                                    .environmentObject(cognitiveModel)
+                                
+                                LevelButton(levelNumber: 4, size: 55, imagePadding: 5, position: CGPoint(x: 300, y: 380))
+                                    .environmentObject(cognitiveModel)
+                                
+                                LevelButton(levelNumber: 5, size: 55, imagePadding: 2, position: CGPoint(x: 125, y: 315))
+                                    .environmentObject(cognitiveModel)
+                                
+                                LevelButton(levelNumber: 6, size: 55, imagePadding: 2, position: CGPoint(x: 230, y: 200))
+                                    .environmentObject(cognitiveModel)
+                                
+                                LevelButton(levelNumber: 7, size: 55, imagePadding: 2, position: CGPoint(x: 110, y: 35))
+                                    .environmentObject(cognitiveModel)
                             }
 
-                            Group {
-                                NavigationLink(destination: QuestionView(levelNumber: 1).environmentObject(triviaManager).onAppear {
-                                    triviaManager.prepareForLevel(1)
-                                }, label: {
-                                    VStack {
-                                        ImageButton(imageName: "level1", size: 55, imagePadding: 4)
-                                        ProgressBar(progress: triviaManager.levelScores[0], width: 70, height: 8, isYellowOnly: false)
-                                    }
-                                        .position(x: 160, y: 670)
-                                })
-                                    .buttonStyle(PlainButtonStyle())
-
-
-                                NavigationLink(destination: QuestionView(levelNumber: 2).environmentObject(triviaManager).onAppear {
-                                    triviaManager.prepareForLevel(2)
-                                }, label: {
-                                    VStack {
-                                        ImageButton(imageName: "level2", size: 55, imagePadding: 6)
-                                        ProgressBar(progress: triviaManager.levelScores[1], width: 70, height: 8, isYellowOnly: false)
-                                    }
-                                            .position(x: 320, y: 570)
-                                })
-                                        .buttonStyle(PlainButtonStyle())
-
-                                NavigationLink(destination: QuestionView(levelNumber: 3)
-                                        .environmentObject(triviaManager).onAppear {
-                                            triviaManager.prepareForLevel(3)
-                                        }, label: {
-                                    VStack {
-                                        ImageButton(imageName: "level3", size: 55, imagePadding: 3)
-                                        ProgressBar(progress: triviaManager.levelScores[2], width: 70, height: 8, isYellowOnly: false)
-                                    }
-                                            .position(x: 70, y: 490)
-                                })
-                                        .buttonStyle(PlainButtonStyle())
-
-                                NavigationLink(destination: QuestionView(levelNumber: 4)
-                                        .environmentObject(triviaManager).onAppear {
-                                            triviaManager.prepareForLevel(4)
-                                        }, label: {
-                                    VStack {
-                                        ImageButton(imageName: "level4", size: 55, imagePadding: 5)
-                                        ProgressBar(progress: triviaManager.levelScores[3], width: 70, height: 8, isYellowOnly: false)
-                                    }
-                                            .position(x: 300, y: 380)
-                                })
-                                        .buttonStyle(PlainButtonStyle())
-
-                                NavigationLink(destination: QuestionView(levelNumber: 5)
-                                        .environmentObject(triviaManager), label: {
-                                    VStack {
-                                        ImageButton(imageName: "level5", size: 55, imagePadding: 2)
-                                        ProgressBar(progress: triviaManager.levelScores[4], width: 70, height: 8, isYellowOnly: false)
-                                    }
-                                            .position(x: 125, y: 315)
-                                })
-                                        .buttonStyle(PlainButtonStyle()).onAppear {
-                                            triviaManager.prepareForLevel(5)
-                                        }
-
-                                NavigationLink(destination: QuestionView(levelNumber: 6)
-                                        .environmentObject(triviaManager).onAppear {
-                                            triviaManager.prepareForLevel(6)
-                                        }, label: {
-                                    VStack {
-                                        ImageButton(imageName: "level6", size: 55, imagePadding: 2)
-                                        ProgressBar(progress: triviaManager.levelScores[5], width: 70, height: 8, isYellowOnly: false)
-                                    }
-                                            .position(x: 230, y: 200)
-                                })
-                                        .buttonStyle(PlainButtonStyle())
-
-                                NavigationLink(destination: QuestionView(levelNumber: 7)
-                                        .environmentObject(triviaManager).onAppear {
-                                            triviaManager.prepareForLevel(5)
-                                        }, label: {
-                                    VStack {
-                                        ImageButton(imageName: "level7", size: 55, imagePadding: 2)
-                                        ProgressBar(progress: triviaManager.levelScores[6], width: 70, height: 8, isYellowOnly: false)
-                                    }
-                                            .position(x: 110, y: 35)
-                                })
-                                        .buttonStyle(PlainButtonStyle())
-                            }
                         }
                     }
-                    NavigationLink(destination: StudentProgressView(triviaManager: triviaManager)) {
+                    NavigationLink(destination: StudentProgressView(cognitiveModel: cognitiveModel)) {
                          Text("Your Progress")
                              .font(.headline)
                              .padding(.vertical, 8)
@@ -253,3 +103,28 @@ struct ContentView: View {
 }
 
  
+
+struct LineView: View {
+    let startPoint: CGPoint
+    let endPoint: CGPoint
+    
+    var body: some View {
+        Path { path in
+            path.move(to: startPoint)
+            path.addLine(to: endPoint)
+        }
+        .stroke(.black, lineWidth: 3)
+    }
+}
+
+struct ArrowheadView: View {
+    let position: CGPoint
+    let rotation: Double
+    
+    var body: some View {
+        Image(systemName: "arrowtriangle.down.fill")
+            .font(.system(size: 20.0))
+            .rotationEffect(.degrees(rotation), anchor: .center)
+            .position(position)
+    }
+}
