@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @EnvironmentObject var triviaManager: TriviaManager
+    @EnvironmentObject var triviaManager: CognitiveModel
     @State private var userInput = ""
     @State private var isFillInBlankAnswerCorrect: Bool? = nil
     @State private var isFillInBlankAnswerSubmitted: Bool = false

@@ -2,12 +2,24 @@ import Foundation
 import SwiftUI
 
 
-class TriviaManager: ObservableObject {
+class CognitiveModel: ObservableObject {
     private(set) var trivia: [Trivia.Result] = []
     @Published private(set) var length = 0
     @Published private(set) var index = 0
     @Published private(set) var answerSelected = false
     @Published private(set) var question: AttributedString = ""
+    
+    let levelAccess: [[Int]] = [
+            [2],
+            [1, 3, 4],
+            [2, 5, 6],
+            [2, 6],
+            [3, 7],
+            [3, 4, 7],
+            [5, 6]
+        ]
+
+    @Published var unlockedLevels: [Bool] = Array(repeating: false, count: 7)
     // used for MPC answers
     @Published private(set) var answerChoices: [Answer] = []
     // used to compute the percentage of correct question of a given level
@@ -41,17 +53,23 @@ class TriviaManager: ObservableObject {
     // Initilize TriviaManager
     init() {
         selectRandomStudentScores()
+        updateUnlockedLevels() // Call this upon initialization
+        // to prevent index error
+        prepareForLevel(1)
     }
 
     // Used to update the TriviaManager variavles according to the current level
     func prepareForLevel(_ level: Int) {
             self.currentLevel = level
-            self.range = TriviaManager.getRangeForLevel(currentLevel: self.currentLevel)
+            self.range = CognitiveModel.getRangeForLevel(currentLevel: self.currentLevel)
             self.reachedEnd[currentLevel - 1] = (levelIndividualScores[currentLevel - 1] == range.count)
 
-            // Update the index and clear the lastIncorrectlyAnswered sublist for the current level
             if lastIncorrectlyAnswered[currentLevel - 1].isEmpty {
-                self.index = 0
+                if lastCorrectlyAnswered[currentLevel - 1].count == range.count {
+                    self.index = 0
+                } else {
+                    self.index = lastCorrectlyAnswered[currentLevel - 1].count
+                }
             } else {
                 self.index = lastIncorrectlyAnswered[currentLevel - 1][0]
             }
@@ -59,6 +77,7 @@ class TriviaManager: ObservableObject {
                 await fetchTrivia()
             }
         }
+
 
 
     // Load the question data from the json file
@@ -84,6 +103,7 @@ class TriviaManager: ObservableObject {
         } catch {
             print("Error fetching trivia: \(error)")
         }
+        print(range)
     }
 
     // Go to next question of a given level
@@ -91,7 +111,7 @@ class TriviaManager: ObservableObject {
         if index + 1 < length {
             index += 1
             // Skip questions that have already been answered correctly
-            while lastCorrectlyAnswered[currentLevel - 1].contains(index) && index + 1 <= length {
+            while lastCorrectlyAnswered[currentLevel - 1].contains(index) && index + 1 < length {
                 index += 1
             }
             if index >= length {
@@ -170,6 +190,7 @@ class TriviaManager: ObservableObject {
         if newScore > levelScores[currentLevel - 1] {
             levelScores[currentLevel - 1] = newScore
         }
+        updateUnlockedLevels()
     }
 
     static func getRangeForLevel(currentLevel: Int) -> Range<Int> {
@@ -185,8 +206,25 @@ class TriviaManager: ObservableObject {
             if let randomStudentScores = studentScores.randomElement() {
                 levelScores = randomStudentScores.map { CGFloat($0) }
             }
-        }
+    }
     
+    // Add this function to update the unlocked levels based on level scores
+    func updateUnlockedLevels() {
+            // Always unlock Level 1
+            unlockedLevels[0] = true
+            for (index, levelScore) in levelScores.enumerated() {
+                // If the level score is >= 75%, unlock the level itself
+                if levelScore >= 0.75 {
+                    unlockedLevels[index] = true
+                    
+                    // Unlock the connected levels
+                    for connectedLevel in levelAccess[index] {
+                        unlockedLevels[connectedLevel - 1] = true
+                    }
+                }
+            }
+        }
+
 }
 
 struct InitialTestResults{
