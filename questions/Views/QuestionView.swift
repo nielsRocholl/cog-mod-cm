@@ -112,6 +112,8 @@ struct QuestionView: View {
                             .font(.system(size: 20))
                             .bold()
                             .foregroundColor(.black)
+                            .multilineTextAlignment(.center)
+
 
                         if triviaManager.isMultipleChoice {
                             ForEach(triviaManager.answerChoices, id: \.id) { answer in
@@ -144,6 +146,7 @@ struct QuestionView: View {
                     }
                     
                     Button {
+                        isHintVisible = false
                         if triviaManager.isMultipleChoice {
                             triviaManager.goToNextQuestion()
                         } else {
