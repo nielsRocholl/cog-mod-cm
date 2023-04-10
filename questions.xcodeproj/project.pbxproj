@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		662270A829C6042300D9B92D /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 662270A729C6042300D9B92D /* data.json */; };
 		66A8BFCF29CFA4AC00D4E0E2 /* NodeProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A8BFCE29CFA4AC00D4E0E2 /* NodeProgress.swift */; };
+		66CF477129E4332200764400 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CF477029E4332200764400 /* WelcomeView.swift */; };
 		66E1082729E19FF900CD2C36 /* StudentProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1082629E19FF900CD2C36 /* StudentProgressView.swift */; };
 		66E1082929E1C19000CD2C36 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1082829E1C19000CD2C36 /* ImageButton.swift */; };
 		66E1082D29E29C3500CD2C36 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1082C29E29C3500CD2C36 /* LevelButton.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		662270A729C6042300D9B92D /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		66A8BFCE29CFA4AC00D4E0E2 /* NodeProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeProgress.swift; sourceTree = "<group>"; };
+		66CF477029E4332200764400 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		66E1082629E19FF900CD2C36 /* StudentProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProgressView.swift; sourceTree = "<group>"; };
 		66E1082829E1C19000CD2C36 /* ImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		66E1082C29E29C3500CD2C36 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				CE9C62FE29C0D2FF00D3176B /* textField.swift */,
 				CE182AC429B8D20300FE3BC0 /* QuestionView.swift */,
 				66E1082629E19FF900CD2C36 /* StudentProgressView.swift */,
+				66CF477029E4332200764400 /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				CE182AB229B8CBA200FE3BC0 /* LevelView.swift in Sources */,
 				66E1082D29E29C3500CD2C36 /* LevelButton.swift in Sources */,
 				CEC2A6BC29BA2EE800FEC741 /* Questions.swift in Sources */,
+				66CF477129E4332200764400 /* WelcomeView.swift in Sources */,
 				CE182AB029B8CBA200FE3BC0 /* questionsApp.swift in Sources */,
 				CEC2A6BE29BA325300FEC741 /* CognitiveModel.swift in Sources */,
 				CE182AC029B8CCEE00FE3BC0 /* primaryButton.swift in Sources */,

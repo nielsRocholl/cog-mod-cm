@@ -10,6 +10,7 @@ import Combine
 
 struct LevelView: View {
     @StateObject var cognitiveModel = CognitiveModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
 
@@ -96,9 +97,15 @@ struct LevelView: View {
             }
 
         }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .edgesIgnoringSafeArea(.all)
-                .background(Color(.black))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .edgesIgnoringSafeArea(.all)
+        .background(Color(.black))
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 

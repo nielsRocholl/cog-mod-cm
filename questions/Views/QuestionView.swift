@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @EnvironmentObject var triviaManager: CognitiveModel
+    @EnvironmentObject var cognitiveModel: CognitiveModel
     @State private var userInput = ""
     @State private var isFillInBlankAnswerCorrect: Bool? = nil
     @State private var isFillInBlankAnswerSubmitted: Bool = false
@@ -12,24 +12,24 @@ struct QuestionView: View {
     
     var body: some View {
         ZStack {
-            if triviaManager.reachedEnd[levelNumber - 1] {
+            if cognitiveModel.reachedEnd[levelNumber - 1] {
                 VStack(spacing: 20) {
                     Text("Level \(levelNumber)")
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                         .foregroundColor(Color("AccentColor"))
                     
-                    if triviaManager.levelIndividualScores[levelNumber - 1] == triviaManager.length {
+                    if cognitiveModel.levelIndividualScores[levelNumber - 1] == cognitiveModel.length {
                         Text("Congratulations, you have mastered level \(levelNumber)!")
                     } else {
-                        Text("Congratulations, you completed level \(levelNumber)")
+                        Text("You have asnswered all questions, but some answeres where incorrect.")
                     }
                     
-                    Text("You scored \(triviaManager.levelIndividualScores[levelNumber - 1]) out of \(triviaManager.length)")
+                    Text("You scored \(cognitiveModel.levelIndividualScores[levelNumber - 1]) out of \(cognitiveModel.length)")
                     
-                    if triviaManager.levelIndividualScores[levelNumber - 1] != triviaManager.length {
+                    if cognitiveModel.levelIndividualScores[levelNumber - 1] != cognitiveModel.length {
                         Button {
                             Task.init {
-                                triviaManager.prepareForLevel(levelNumber)
+                                cognitiveModel.prepareForLevel(levelNumber)
                             }
                         } label: {
                             PrimaryButton(text: "Play again")
@@ -52,7 +52,7 @@ struct QuestionView: View {
                     Spacer()
                     
                     VStack {
-                        if let imageName = triviaManager.currentImage, imageName != "None" {
+                        if let imageName = cognitiveModel.currentImage, imageName != "None" {
                             Group {
                                 Image(imageName)
                                     .resizable()
@@ -66,7 +66,7 @@ struct QuestionView: View {
                             }
                         }
                         
-                        ProgressBar(progress: triviaManager.progress, width: 350, height: 4, isYellowOnly: true)
+                        ProgressBar(progress: cognitiveModel.progress, width: 350, height: 4, isYellowOnly: true)
                     }
                     
                     Button(action: {
@@ -80,7 +80,7 @@ struct QuestionView: View {
                     .padding(.top, 8)
                     
                     if isHintVisible {
-                        Text(triviaManager.hint)
+                        Text(cognitiveModel.hint)
                                     .font(.system(size: 16))
                                     .foregroundColor(.gray)
                                     .padding(.vertical, 8)
@@ -108,17 +108,17 @@ struct QuestionView: View {
 //                            }
 //                        }
                         
-                        Text(triviaManager.question)
+                        Text(cognitiveModel.question)
                             .font(.system(size: 20))
                             .bold()
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
 
 
-                        if triviaManager.isMultipleChoice {
-                            ForEach(triviaManager.answerChoices, id: \.id) { answer in
+                        if cognitiveModel.isMultipleChoice {
+                            ForEach(cognitiveModel.answerChoices, id: \.id) { answer in
                                 AnswerRow(answer: answer)
-                                    .environmentObject(triviaManager)
+                                    .environmentObject(cognitiveModel)
                             }
                         } else {
                             HStack {
@@ -134,7 +134,7 @@ struct QuestionView: View {
                                         .foregroundColor(isCorrect ? .green : .red)
                                 }
                                 
-                                if let unit                             = triviaManager.currentUnit {
+                                if let unit                             = cognitiveModel.currentUnit {
                                     Text(unit)
                                         .font(.system(size: 18))
                                         .bold()
@@ -147,29 +147,29 @@ struct QuestionView: View {
                     
                     Button {
                         isHintVisible = false
-                        if triviaManager.isMultipleChoice {
-                            triviaManager.goToNextQuestion()
+                        if cognitiveModel.isMultipleChoice {
+                            cognitiveModel.goToNextQuestion()
                         } else {
                             if isFillInBlankAnswerSubmitted {
                                 isFillInBlankAnswerCorrect = nil
                                 isFillInBlankAnswerSubmitted = false
                                 userInput = ""
-                                triviaManager.goToNextQuestion()
+                                cognitiveModel.goToNextQuestion()
                             } else {
-                                isFillInBlankAnswerCorrect = triviaManager.processFillInBlankAnswer(userInput)
+                                isFillInBlankAnswerCorrect = cognitiveModel.processFillInBlankAnswer(userInput)
                                 isFillInBlankAnswerSubmitted = true
                             }
                         }
                     } label: {
-                        Text((triviaManager.isMultipleChoice || isFillInBlankAnswerSubmitted) ? "Next" : "Submit")
+                        Text((cognitiveModel.isMultipleChoice || isFillInBlankAnswerSubmitted) ? "Next" : "Submit")
                             .font(.system(size: 20))
                             .fontWeight(.semibold)
-                            .foregroundColor(triviaManager.answerSelected || !userInput.isEmpty ? .white : .gray)
+                            .foregroundColor(cognitiveModel.answerSelected || !userInput.isEmpty ? .white : .gray)
                             .padding(.vertical, 12)
                             .padding(.horizontal, 40)
-                            .background(RoundedRectangle(cornerRadius: 12).fill(triviaManager.answerSelected || !userInput.isEmpty ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.0564, opacity: 0.327)))
+                            .background(RoundedRectangle(cornerRadius: 12).fill(cognitiveModel.answerSelected || !userInput.isEmpty ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.0564, opacity: 0.327)))
                     }
-                    .disabled(triviaManager.isMultipleChoice ? !triviaManager.answerSelected : userInput.isEmpty)
+                    .disabled(cognitiveModel.isMultipleChoice ? !cognitiveModel.answerSelected : userInput.isEmpty)
                     .padding(.top, 20)
 
 
@@ -177,7 +177,7 @@ struct QuestionView: View {
                     
                     Spacer()
                     
-                    Text("\(triviaManager.index + 1) out of \(triviaManager.length)")
+                    Text("\(cognitiveModel.index + 1) out of \(cognitiveModel.length)")
                         .foregroundColor(.black)
                         .fontWeight(.heavy)
                 }
@@ -188,7 +188,7 @@ struct QuestionView: View {
             }
         }
         .onAppear {
-            triviaManager.currentLevel = levelNumber
+            cognitiveModel.currentLevel = levelNumber
         }
     }
 }
