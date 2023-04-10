@@ -35,7 +35,6 @@ struct StudentProgressView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 24, height: 24)
-                            .colorInvert()
 
                         Text("§\(level + 1) \(levelNames()[level]):")
                             .font(.body)
@@ -83,8 +82,8 @@ struct StudentProgressView: View {
         }
         .padding()
         .navigationTitle("Student Progress")
-        .background(.black)
-        .foregroundColor(.white)
+        .background(Color("AccentColor3")) // Change the background color
+        .foregroundColor(.black) // Change the foreground color
     }
     
     func averageScore() -> CGFloat {

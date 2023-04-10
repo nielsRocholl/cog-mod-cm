@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Trivia: Decodable {
+struct Questions: Decodable {
     var results: [Result]
     
     struct Result: Decodable, Identifiable {
@@ -22,7 +22,7 @@ struct Trivia: Decodable {
         var incorrectAnswers: [String]
         var unit: String
         var points: Int
-//        var isAnsweredCorrectly: Bool = false
+        var hint: String
 
     
         var formattedQuestion: AttributedString {

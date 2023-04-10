@@ -3,7 +3,7 @@ import SwiftUI
 
 
 class CognitiveModel: ObservableObject {
-    private(set) var trivia: [Trivia.Result] = []
+    private(set) var trivia: [Questions.Result] = []
     @Published private(set) var length = 0
     @Published private(set) var index = 0
     @Published private(set) var answerSelected = false
@@ -22,6 +22,8 @@ class CognitiveModel: ObservableObject {
     @Published var unlockedLevels: [Bool] = Array(repeating: false, count: 7)
     // used for MPC answers
     @Published private(set) var answerChoices: [Answer] = []
+    // hint for the user
+    @Published private(set) var hint: String = ""
     // used to compute the percentage of correct question of a given level
     @Published private(set) var progress: CGFloat = 0.00
     // array filled with floats that represent the percentage of correct questions per level
@@ -92,7 +94,7 @@ class CognitiveModel: ObservableObject {
 
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let decodedData = try decoder.decode([Trivia.Result].self, from: data)
+            let decodedData = try decoder.decode([Questions.Result].self, from: data)
 
             DispatchQueue.main.sync {
                 self.reachedEnd[currentLevel - 1] = (levelIndividualScores[currentLevel - 1] == range.count) // Update this line
@@ -136,7 +138,9 @@ class CognitiveModel: ObservableObject {
         let currentQuestion = trivia[index]
         question = currentQuestion.formattedQuestion
         answerChoices = currentQuestion.answers.shuffled()
+        hint = currentQuestion.hint
     }
+
 
     func processFillInBlankAnswer(_ answer: String) -> Bool {
         let correctAnswer = trivia[index].correctAnswer

@@ -18,12 +18,14 @@ struct AnswerRow: View {
     var red = Color(red: 0.71, green: 0.094, blue: 0.1)
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 10) {
             Image(systemName: "circle.fill")
                 .font(.caption)
             
             Text(answer.text)
-                .bold()
+//                .bold()
+                .font(.system(size: 18)) // Smaller font size
+
             
             if isSelected {
                 Spacer()
@@ -36,7 +38,9 @@ struct AnswerRow: View {
             }
             
         }
-        .padding()
+//        .padding(.vertical, 8) // Reduced vertical padding
+//        .padding(.horizontal, 12) // Reduced horizontal padding
+        .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
         .foregroundColor(triviaManager.answerSelected ? (isSelected ? Color("AccentColor") : .gray) : Color("AccentColor"))
         .background(.white)
