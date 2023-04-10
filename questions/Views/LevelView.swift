@@ -8,7 +8,7 @@ import SwiftUI
 import Combine
 
 
-struct ContentView: View {
+struct LevelView: View {
     @StateObject var cognitiveModel = CognitiveModel()
 
     var body: some View {

@@ -13,7 +13,7 @@
 		66E1082929E1C19000CD2C36 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1082829E1C19000CD2C36 /* ImageButton.swift */; };
 		66E1082D29E29C3500CD2C36 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1082C29E29C3500CD2C36 /* LevelButton.swift */; };
 		CE182AB029B8CBA200FE3BC0 /* questionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE182AAF29B8CBA200FE3BC0 /* questionsApp.swift */; };
-		CE182AB229B8CBA200FE3BC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE182AB129B8CBA200FE3BC0 /* ContentView.swift */; };
+		CE182AB229B8CBA200FE3BC0 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE182AB129B8CBA200FE3BC0 /* LevelView.swift */; };
 		CE182AB429B8CBA400FE3BC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE182AB329B8CBA400FE3BC0 /* Assets.xcassets */; };
 		CE182AC029B8CCEE00FE3BC0 /* primaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE182ABF29B8CCEE00FE3BC0 /* primaryButton.swift */; };
 		CE182AC329B8D09F00FE3BC0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE182AC229B8D09F00FE3BC0 /* Extensions.swift */; };
@@ -22,7 +22,7 @@
 		CE182ACA29B8D74C00FE3BC0 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE182AC929B8D74C00FE3BC0 /* Answer.swift */; };
 		CE6C3A4229B8E96300FD75CE /* AnswerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C3A4129B8E96300FD75CE /* AnswerRow.swift */; };
 		CE9C62FF29C0D2FF00D3176B /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C62FE29C0D2FF00D3176B /* textField.swift */; };
-		CEC2A6BC29BA2EE800FEC741 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2A6BB29BA2EE800FEC741 /* Trivia.swift */; };
+		CEC2A6BC29BA2EE800FEC741 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2A6BB29BA2EE800FEC741 /* Questions.swift */; };
 		CEC2A6BE29BA325300FEC741 /* CognitiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2A6BD29BA325300FEC741 /* CognitiveModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		66E1082C29E29C3500CD2C36 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
 		CE182AAC29B8CBA100FE3BC0 /* questions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = questions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE182AAF29B8CBA200FE3BC0 /* questionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionsApp.swift; sourceTree = "<group>"; };
-		CE182AB129B8CBA200FE3BC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE182AB129B8CBA200FE3BC0 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		CE182AB329B8CBA400FE3BC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE182AB529B8CBA400FE3BC0 /* questions.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = questions.entitlements; sourceTree = "<group>"; };
 		CE182ABF29B8CCEE00FE3BC0 /* primaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = primaryButton.swift; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		CE182AC929B8D74C00FE3BC0 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		CE6C3A4129B8E96300FD75CE /* AnswerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRow.swift; sourceTree = "<group>"; };
 		CE9C62FE29C0D2FF00D3176B /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
-		CEC2A6BB29BA2EE800FEC741 /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
+		CEC2A6BB29BA2EE800FEC741 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		CEC2A6BD29BA325300FEC741 /* CognitiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitiveModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +106,7 @@
 		CE182AC129B8CECA00FE3BC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE182AB129B8CBA200FE3BC0 /* ContentView.swift */,
+				CE182AB129B8CBA200FE3BC0 /* LevelView.swift */,
 				CE9C62FE29C0D2FF00D3176B /* textField.swift */,
 				CE182AC429B8D20300FE3BC0 /* QuestionView.swift */,
 				66E1082629E19FF900CD2C36 /* StudentProgressView.swift */,
@@ -119,7 +119,7 @@
 			children = (
 				CEC2A6BD29BA325300FEC741 /* CognitiveModel.swift */,
 				CE182AC929B8D74C00FE3BC0 /* Answer.swift */,
-				CEC2A6BB29BA2EE800FEC741 /* Trivia.swift */,
+				CEC2A6BB29BA2EE800FEC741 /* Questions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,9 +194,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE182AB229B8CBA200FE3BC0 /* ContentView.swift in Sources */,
+				CE182AB229B8CBA200FE3BC0 /* LevelView.swift in Sources */,
 				66E1082D29E29C3500CD2C36 /* LevelButton.swift in Sources */,
-				CEC2A6BC29BA2EE800FEC741 /* Trivia.swift in Sources */,
+				CEC2A6BC29BA2EE800FEC741 /* Questions.swift in Sources */,
 				CE182AB029B8CBA200FE3BC0 /* questionsApp.swift in Sources */,
 				CEC2A6BE29BA325300FEC741 /* CognitiveModel.swift in Sources */,
 				CE182AC029B8CCEE00FE3BC0 /* primaryButton.swift in Sources */,
@@ -335,7 +335,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"questions/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Graaf Tel";
+				INFOPLIST_KEY_CFBundleDisplayName = Arithmo;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -372,7 +372,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"questions/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Graaf Tel";
+				INFOPLIST_KEY_CFBundleDisplayName = Arithmo;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
