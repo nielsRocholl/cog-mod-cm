@@ -17,22 +17,30 @@ struct QuestionView: View {
                     Text("Level \(levelNumber)")
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                         .foregroundColor(Color("AccentColor"))
-                    
+                    Spacer().frame (minHeight: 10, maxHeight: 20)
                     if cognitiveModel.levelIndividualScores[levelNumber - 1] == cognitiveModel.length {
                         Text("Congratulations, you have mastered level \(levelNumber)!")
                     } else {
-                        Text("You have asnswered all questions, but some answeres where incorrect.")
+                        Text("Nice work! You have completed all questions, however one or more questions have been answered incorrectly.")
+                            .multilineTextAlignment(.center)
                     }
-                    
-                    Text("You scored \(cognitiveModel.levelIndividualScores[levelNumber - 1]) out of \(cognitiveModel.length)")
+                    Spacer().frame (minHeight: 10, maxHeight: 20)
+                    Text("You answered \(cognitiveModel.levelIndividualScores[levelNumber - 1]) out of \(cognitiveModel.length) questions correctly.")
+                    Spacer().frame (minHeight: 10, maxHeight: 20)
                     
                     if cognitiveModel.levelIndividualScores[levelNumber - 1] != cognitiveModel.length {
-                        Button {
+                        Button(action: {
                             Task.init {
                                 cognitiveModel.prepareForLevel(levelNumber)
                             }
-                        } label: {
-                            PrimaryButton(text: "Play again")
+                        }) {
+                            Text("Play again")
+                                .font(.system(size: 20))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .padding(.vertical, 12)
+                                .padding(.horizontal, 40)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color("AccentColor")))
                         }
                     }
                 }
