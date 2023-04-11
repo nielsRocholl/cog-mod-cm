@@ -105,13 +105,13 @@ struct StudentProgressView: View {
     
     func levelNames() -> [String] {
             return [
-                "Numbers, quantities and units", // Level 1
-                "Length", // Level 2
-                "Weight", // Level 3
-                "Time", // Level 4
-                "Other measures and prefixes", // Level 5
-                "Reference measures", // Level 6
-                "Rules of thumb and formulas" // Level 7
+                "Units of measurement", // Level 1
+                "Basic arithmetic", // Level 2
+                "Word problems", // Level 3
+                "Large number arithmetic", // Level 4
+                "Multi-step word problems", // Level 5
+                "Large number word problems", // Level 6
+                "Final test" // Level 7
             ]
         }
 }
