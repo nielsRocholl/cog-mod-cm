@@ -37,24 +37,40 @@ struct LevelView: View {
                             // More than 10 views gives error, we resolve this by creating sub groups
                             Group {
                                 Group {
-                                    LineView(startPoint: CGPoint(x: 180, y: 630), endPoint: CGPoint(x: 298, y: 580))
-                                    LineView(startPoint: CGPoint(x: 300, y: 565), endPoint: CGPoint(x: 90, y: 495))
-                                    LineView(startPoint: CGPoint(x: 318, y: 550), endPoint: CGPoint(x: 298, y: 390))
-                                    LineView(startPoint: CGPoint(x: 80, y: 490), endPoint: CGPoint(x: 225, y: 220))
-                                    LineView(startPoint: CGPoint(x: 65, y: 490), endPoint: CGPoint(x: 120, y: 330))
-                                    LineView(startPoint: CGPoint(x: 310, y: 390), endPoint: CGPoint(x: 240, y: 220))
-                                    LineView(startPoint: CGPoint(x: 125, y: 300), endPoint: CGPoint(x: 110, y: 50))
-                                    LineView(startPoint: CGPoint(x: 220, y: 180), endPoint: CGPoint(x: 130, y: 43))
+                                    // Node 1-2
+                                    Line(startPoint: CGPoint(x: 187, y: 619), endPoint: CGPoint(x: 297, y: 575))
+                                    // Node 2-3
+                                    Line(startPoint: CGPoint(x: 296, y: 550), endPoint: CGPoint(x: 93, y: 455))
+                                    // Node 2-4
+                                    Line(startPoint: CGPoint(x: 318, y: 535), endPoint: CGPoint(x: 275, y: 359))
+                                    // Node 3-6
+                                    Line(startPoint: CGPoint(x: 88, y: 422), endPoint: CGPoint(x: 215, y: 179))
+                                    // Node 3-5
+                                    Line(startPoint: CGPoint(x: 70, y: 415), endPoint: CGPoint(x: 92, y: 318))
+                                    // Node 4-6
+                                    Line(startPoint: CGPoint(x: 265, y: 305), endPoint: CGPoint(x: 240, y: 182))
+                                    // Node 5-7
+                                    Line(startPoint: CGPoint(x: 100, y: 265), endPoint: CGPoint(x: 103, y: 60))
+                                    // Node 6-7
+                                    Line(startPoint: CGPoint(x: 216, y: 135), endPoint: CGPoint(x: 125, y: 48))
                                 }
                                 Group {
-                                    ArrowheadView(position: CGPoint(x: 200, y: 532), rotation: 110)
-                                    ArrowheadView(position: CGPoint(x: 309, y: 480), rotation: 173)
-                                    ArrowheadView(position: CGPoint(x: 96, y: 400), rotation: 200)
-                                    ArrowheadView(position: CGPoint(x: 166, y: 330), rotation: 205)
-                                    ArrowheadView(position: CGPoint(x: 269, y: 290), rotation: 160)
-                                    ArrowheadView(position: CGPoint(x: 230, y: 608), rotation: 240)
-                                    ArrowheadView(position: CGPoint(x: 119, y: 200), rotation: 178)
-                                    ArrowheadView(position: CGPoint(x: 178, y: 120), rotation: 150)
+                                    // 2-3
+                                    Arrowhead(position: CGPoint(x: 200, y: 505), rotation: 116)
+                                    // 2-4
+                                    Arrowhead(position: CGPoint(x: 295, y: 440), rotation: 166)
+                                    // 3-5
+                                    Arrowhead(position: CGPoint(x: 80, y: 370), rotation: 193)
+                                    // 3-6
+                                    Arrowhead(position: CGPoint(x: 149, y: 305), rotation: 207)
+                                    // 4-6
+                                    Arrowhead(position: CGPoint(x: 253, y: 245), rotation: 167)
+                                    // 1-2
+                                    Arrowhead(position: CGPoint(x: 248, y: 594), rotation: 246)
+                                    // 5-7
+                                    Arrowhead(position: CGPoint(x: 101, y: 150), rotation: 181)
+                                    // 6-7
+                                    Arrowhead(position: CGPoint(x: 169, y: 90), rotation: 136)
                                 }
                             }
                             
@@ -65,25 +81,25 @@ struct LevelView: View {
                                 LevelButton(levelNumber: 2, size: 55, imagePadding: 6, position: CGPoint(x: 320, y: 570))
                                     .environmentObject(cognitiveModel)
                                 
-                                LevelButton(levelNumber: 3, size: 55, imagePadding: 3, position: CGPoint(x: 70, y: 490))
+                                LevelButton(levelNumber: 3, size: 55, imagePadding: 3, position: CGPoint(x: 70, y: 450))
                                     .environmentObject(cognitiveModel)
                                 
-                                LevelButton(levelNumber: 4, size: 55, imagePadding: 5, position: CGPoint(x: 300, y: 380))
+                                LevelButton(levelNumber: 4, size: 55, imagePadding: 5, position: CGPoint(x: 268, y: 340))
                                     .environmentObject(cognitiveModel)
                                 
-                                LevelButton(levelNumber: 5, size: 55, imagePadding: 2, position: CGPoint(x: 125, y: 315))
+                                LevelButton(levelNumber: 5, size: 55, imagePadding: 2, position: CGPoint(x: 100, y: 300))
                                     .environmentObject(cognitiveModel)
                                 
-                                LevelButton(levelNumber: 6, size: 55, imagePadding: 2, position: CGPoint(x: 230, y: 200))
+                                LevelButton(levelNumber: 6, size: 55, imagePadding: 2, position: CGPoint(x: 230, y: 165))
                                     .environmentObject(cognitiveModel)
                                 
-                                LevelButton(levelNumber: 7, size: 55, imagePadding: 2, position: CGPoint(x: 110, y: 35))
+                                LevelButton(levelNumber: 7, size: 55, imagePadding: 2, position: CGPoint(x: 103, y: 40))
                                     .environmentObject(cognitiveModel)
                             }
 
                         }
                     }
-                    NavigationLink(destination: StudentProgressView(cognitiveModel: cognitiveModel)) {
+                    NavigationLink(destination: ProgressView(cognitiveModel: cognitiveModel)) {
                          Text("My Progress")
                              .font(.headline)
                              .padding(.vertical, 8)
@@ -111,7 +127,7 @@ struct LevelView: View {
 
  
 
-struct LineView: View {
+struct Line: View {
     let startPoint: CGPoint
     let endPoint: CGPoint
     
@@ -124,7 +140,7 @@ struct LineView: View {
     }
 }
 
-struct ArrowheadView: View {
+struct Arrowhead: View {
     let position: CGPoint
     let rotation: Double
     

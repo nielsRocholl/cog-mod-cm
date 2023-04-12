@@ -101,20 +101,6 @@ struct QuestionView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 20) {
-                        // Display the image if it's not "None"
-//                        if let imageName = triviaManager.currentImage, imageName != "None" {
-//                            Group {
-//                                Image(imageName)
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 200, height: 200)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-//                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 4))
-//                                    .shadow(radius: 10)
-//                                    .frame(maxWidth: .infinity) // Center the image
-//                                    .padding(.bottom, 20)
-//                            }
-//                        }
                         
                         Text(cognitiveModel.question)
                             .font(.system(size: 20))

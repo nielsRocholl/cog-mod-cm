@@ -21,9 +21,3 @@ struct PrimaryButton: View {
             .shadow(radius: 10)
     }
 }
-
-struct PrimaryButton_Previews: PreviewProvider {
-    static var previews: some View {
-        PrimaryButton(text: "Next")
-    }
-}

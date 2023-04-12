@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct StudentProgressView: View {
+struct ProgressView: View {
     @ObservedObject var cognitiveModel: CognitiveModel
     
     private let studentName = "Niels Rocholl"
@@ -21,7 +21,7 @@ struct StudentProgressView: View {
                 .foregroundColor(Color("AccentColor"))
 
             
-            ProgressCircleView(progress: averageScore(), passed: averageScore() > 0.5)
+            ProgressCircle(progress: averageScore(), passed: averageScore() > 0.5)
             
             VStack(alignment: .leading) {
                 Text("Current score per level:")
@@ -41,7 +41,7 @@ struct StudentProgressView: View {
 
                         Spacer()
 
-                        SmallProgressCircleView(progress: CGFloat(cognitiveModel.levelScores[level]), passed: cognitiveModel.levelScores[level] > 0.5)
+                        SmallProgressCircle(progress: CGFloat(cognitiveModel.levelScores[level]), passed: cognitiveModel.levelScores[level] > 0.5)
                     }
                     .padding(.top, 5)
                     .padding(.horizontal)
@@ -116,7 +116,7 @@ struct StudentProgressView: View {
         }
 }
 
-struct ProgressCircleView: View {
+struct ProgressCircle: View {
     var progress: CGFloat
     var passed: Bool
 
@@ -156,7 +156,7 @@ struct ProgressCircleView: View {
     }
 }
 
-struct SmallProgressCircleView: View {
+struct SmallProgressCircle: View {
     var progress: CGFloat
     var passed: Bool
 

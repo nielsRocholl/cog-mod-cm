@@ -75,6 +75,7 @@ class CognitiveModel: ObservableObject {
             } else {
                 self.index = lastIncorrectlyAnswered[currentLevel - 1][0]
             }
+         print(lastCorrectlyAnswered[currentLevel - 1])
             Task.init {
                 await fetchTrivia()
             }
@@ -105,27 +106,29 @@ class CognitiveModel: ObservableObject {
         } catch {
             print("Error fetching trivia: \(error)")
         }
-        print(range)
     }
 
     // Go to next question of a given level
     func goToNextQuestion() {
         if index + 1 < length {
             index += 1
-            // Skip questions that have already been answered correctly
+            // Continue checking if the index is in lastCorrectlyAnswered[currentLevel - 1] and incrementing
             while lastCorrectlyAnswered[currentLevel - 1].contains(index) && index + 1 < length {
                 index += 1
             }
-            if index >= length {
-                reachedEnd[currentLevel - 1] = true
-            } else {
+            // while the last question has not been reached and if the last question is not already answered correctly
+            if index < length && !lastCorrectlyAnswered[currentLevel - 1].contains(index){
                 setQuestion()
+            } else {
+                reachedEnd[currentLevel - 1] = true
             }
         } else {
             reachedEnd[currentLevel - 1] = true
         }
     }
 
+
+    
 
 
     func setQuestion() {
@@ -241,3 +244,5 @@ struct InitialTestResults{
     let student7: [Double] = [1.0, 0.81, 0.52, 0.0, 0.29, 0.43, 0.05]
     let student8: [Double] = [1.0, 0.38, 0.67, 0.0, 0.29, 0.67, 0.1]
 }
+
+
