@@ -8,16 +8,27 @@ class CognitiveModel: ObservableObject {
     @Published private(set) var index = 0
     @Published private(set) var answerSelected = false
     @Published private(set) var question: AttributedString = ""
-    
+
+    let levelQuestions: [[Int]] = [
+        [0, 1, 2, 3, 4, 5],
+        [6, 8],
+        [9, 10, 11, 12, 13, 14, 47],
+        [15, 16, 17, 45, 46, 49, 50, 51, 52],
+        [18, 21, 23, 24, 25],
+        [19, 20, 22, 26, 28, 29, 30, 31, 32, 33, 34, 41, 42, 44],
+        [27, 35, 36, 37, 38, 39, 40, 43]
+    ]
+
+
     let levelAccess: [[Int]] = [
-            [2],
-            [1, 3, 4],
-            [2, 5, 6],
-            [2, 6],
-            [3, 7],
-            [3, 4, 7],
-            [5, 6]
-        ]
+        [2],
+        [1, 3, 4],
+        [2, 5, 6],
+        [2, 6],
+        [3, 7],
+        [3, 4, 7],
+        [5, 6]
+    ]
 
     @Published var unlockedLevels: [Bool] = Array(repeating: false, count: 7)
     // used for MPC answers
@@ -39,7 +50,7 @@ class CognitiveModel: ObservableObject {
     // keeps track of the questions you answered correctly
     @Published var lastCorrectlyAnswered: [[Int]] = Array(repeating: [], count: 7)
     // Initialize the max range of the questions
-    private var range: Range<Int> = 0..<50
+//    private var range: Range<Int> = 0..<50
     // Check if the current question is MPC
     var isMultipleChoice: Bool {
         trivia[index].type == "multiple_choice"
@@ -62,25 +73,24 @@ class CognitiveModel: ObservableObject {
 
     // Used to update the TriviaManager variavles according to the current level
     func prepareForLevel(_ level: Int) {
-            self.currentLevel = level
-            self.range = CognitiveModel.getRangeForLevel(currentLevel: self.currentLevel)
-            self.reachedEnd[currentLevel - 1] = (levelIndividualScores[currentLevel - 1] == range.count)
+        self.currentLevel = level
+//            self.range = CognitiveModel.getRangeForLevel(currentLevel: self.currentLevel)
+        self.reachedEnd[currentLevel - 1] = (levelIndividualScores[currentLevel - 1] == levelQuestions[currentLevel - 1].count)
 
-            if lastIncorrectlyAnswered[currentLevel - 1].isEmpty {
-                if lastCorrectlyAnswered[currentLevel - 1].count == range.count {
-                    self.index = 0
-                } else {
-                    self.index = lastCorrectlyAnswered[currentLevel - 1].count
-                }
+        if lastIncorrectlyAnswered[currentLevel - 1].isEmpty {
+            if lastCorrectlyAnswered[currentLevel - 1].count == levelQuestions[currentLevel - 1].count {
+                self.index = 0
             } else {
-                self.index = lastIncorrectlyAnswered[currentLevel - 1][0]
+                self.index = lastCorrectlyAnswered[currentLevel - 1].count
             }
-         print(lastCorrectlyAnswered[currentLevel - 1])
-            Task.init {
-                await fetchTrivia()
-            }
+        } else {
+            self.index = lastIncorrectlyAnswered[currentLevel - 1][0]
         }
-
+        print(lastCorrectlyAnswered[currentLevel - 1])
+        Task.init {
+            await fetchTrivia()
+        }
+    }
 
 
     // Load the question data from the json file
@@ -98,8 +108,11 @@ class CognitiveModel: ObservableObject {
             let decodedData = try decoder.decode([Questions.Result].self, from: data)
 
             DispatchQueue.main.sync {
-                self.reachedEnd[currentLevel - 1] = (levelIndividualScores[currentLevel - 1] == range.count) // Update this line
-                self.trivia = Array(decodedData[range])
+                // Extract questions based on levelQuestions[currentLevel-1] indices
+                let indices = levelQuestions[currentLevel - 1]
+                self.trivia = indices.map {
+                    decodedData[$0]
+                }
                 self.length = self.trivia.count
                 self.setQuestion()
             }
@@ -117,7 +130,7 @@ class CognitiveModel: ObservableObject {
                 index += 1
             }
             // while the last question has not been reached and if the last question is not already answered correctly
-            if index < length && !lastCorrectlyAnswered[currentLevel - 1].contains(index){
+            if index < length && !lastCorrectlyAnswered[currentLevel - 1].contains(index) {
                 setQuestion()
             } else {
                 reachedEnd[currentLevel - 1] = true
@@ -126,9 +139,6 @@ class CognitiveModel: ObservableObject {
             reachedEnd[currentLevel - 1] = true
         }
     }
-
-
-    
 
 
     func setQuestion() {
@@ -151,19 +161,19 @@ class CognitiveModel: ObservableObject {
         if answer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == correctAnswer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) {
             levelIndividualScores[currentLevel - 1] += 1
             updateLevelScore()
-            
+
             // if current question is in lastIncorrectlyAnswered, but is now answered correctly, then remove it from the list
             if let currentIndex = lastIncorrectlyAnswered[currentLevel - 1].firstIndex(of: index) {
                 lastIncorrectlyAnswered[currentLevel - 1].remove(at: currentIndex)
             }
             // add question to lastCorrectlyAnswered if correctly answered and not already in there
             if !lastCorrectlyAnswered[currentLevel - 1].contains(index) {
-                    lastCorrectlyAnswered[currentLevel - 1].append(index)
+                lastCorrectlyAnswered[currentLevel - 1].append(index)
             }
             return true
         }
         // if question is answered incorrectly and not in lastIncorrectlyAnswered, add it
-        else if !lastIncorrectlyAnswered[currentLevel - 1].contains(index){
+        else if !lastIncorrectlyAnswered[currentLevel - 1].contains(index) {
             lastIncorrectlyAnswered[currentLevel - 1].append(index)
             return false
         }
@@ -183,11 +193,11 @@ class CognitiveModel: ObservableObject {
             }
             // add question to lastCorrectlyAnswered if correctly answered and not already in there
             if !lastCorrectlyAnswered[currentLevel - 1].contains(index) {
-                    lastCorrectlyAnswered[currentLevel - 1].append(index)
+                lastCorrectlyAnswered[currentLevel - 1].append(index)
             }
         }
         // if question is answered incorrectly and not in lastIncorrectlyAnswered, add it
-        else if !lastIncorrectlyAnswered[currentLevel - 1].contains(index){
+        else if !lastIncorrectlyAnswered[currentLevel - 1].contains(index) {
             lastIncorrectlyAnswered[currentLevel - 1].append(index)
         }
     }
@@ -200,41 +210,38 @@ class CognitiveModel: ObservableObject {
         updateUnlockedLevels()
     }
 
-    static func getRangeForLevel(currentLevel: Int) -> Range<Int> {
-        let startIndex = (currentLevel - 1) * 4
-        let endIndex = startIndex + 4
-        return startIndex..<endIndex
-    }
-    
+
     func selectRandomStudentScores() {
-            let initialTestResults = InitialTestResults()
-            let studentScores = [initialTestResults.student1, initialTestResults.student2, initialTestResults.student3, initialTestResults.student4, initialTestResults.student5, initialTestResults.student6, initialTestResults.student7, initialTestResults.student8]
-            
-            if let randomStudentScores = studentScores.randomElement() {
-                levelScores = randomStudentScores.map { CGFloat($0) }
+        let initialTestResults = InitialTestResults()
+        let studentScores = [initialTestResults.student1, initialTestResults.student2, initialTestResults.student3, initialTestResults.student4, initialTestResults.student5, initialTestResults.student6, initialTestResults.student7, initialTestResults.student8]
+
+        if let randomStudentScores = studentScores.randomElement() {
+            levelScores = randomStudentScores.map {
+                CGFloat($0)
             }
+        }
     }
-    
+
     // Add this function to update the unlocked levels based on level scores
     func updateUnlockedLevels() {
-            // Always unlock Level 1
-            unlockedLevels[0] = true
-            for (index, levelScore) in levelScores.enumerated() {
-                // If the level score is >= 75%, unlock the level itself
-                if levelScore >= 0.75 {
-                    unlockedLevels[index] = true
-                    
-                    // Unlock the connected levels
-                    for connectedLevel in levelAccess[index] {
-                        unlockedLevels[connectedLevel - 1] = true
-                    }
+        // Always unlock Level 1
+        unlockedLevels[0] = true
+        for (index, levelScore) in levelScores.enumerated() {
+            // If the level score is >= 75%, unlock the level itself
+            if levelScore >= 0.75 {
+                unlockedLevels[index] = true
+
+                // Unlock the connected levels
+                for connectedLevel in levelAccess[index] {
+                    unlockedLevels[connectedLevel - 1] = true
                 }
             }
         }
+    }
 
 }
 
-struct InitialTestResults{
+struct InitialTestResults {
     let student1: [Double] = [1.0, 0.76, 0.9, 0.67, 0.4, 0.52, 0.24]
     let student2: [Double] = [1.0, 0.67, 0.62, 0.0, 0.24, 0.33, 0.1]
     let student3: [Double] = [1.0, 0.95, 0.67, 0.0, 0.81, 0.19, 0.24]

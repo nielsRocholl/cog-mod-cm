@@ -11,7 +11,7 @@ import SwiftUI
 extension Text {
     func yellowTitle() -> some View {
         self.font(.title)
-            .fontWeight(.heavy)
-            .foregroundColor(Color("AccentColor"))
+                .fontWeight(.heavy)
+                .foregroundColor(Color("AccentColor"))
     }
 }

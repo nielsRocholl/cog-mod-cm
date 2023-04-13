@@ -17,25 +17,26 @@ struct LevelButton: View {
     @EnvironmentObject var cognitiveModel: CognitiveModel
 
     var body: some View {
-            if cognitiveModel.unlockedLevels[levelNumber - 1] {
-                NavigationLink(destination: QuestionView(levelNumber: levelNumber).onAppear {
-                    cognitiveModel.prepareForLevel(levelNumber)
-                }.environmentObject(cognitiveModel), label: {
-                    VStack {
-                        ImageButton(imageName: "level\(levelNumber)", size: size, imagePadding: imagePadding)
-                        ProgressBar(progress: cognitiveModel.levelScores[levelNumber - 1], width: 70, height: 8, isYellowOnly: false)
+        if cognitiveModel.unlockedLevels[levelNumber - 1] {
+            NavigationLink(destination: QuestionView(levelNumber: levelNumber).onAppear {
+                        cognitiveModel.prepareForLevel(levelNumber)
                     }
-                })
-                .buttonStyle(PlainButtonStyle())
-                .position(position)
-            } else {
+                    .environmentObject(cognitiveModel), label: {
                 VStack {
                     ImageButton(imageName: "level\(levelNumber)", size: size, imagePadding: imagePadding)
                     ProgressBar(progress: cognitiveModel.levelScores[levelNumber - 1], width: 70, height: 8, isYellowOnly: false)
                 }
-                .position(position)
-                .opacity(0.5)
-                .disabled(true)
+            })
+                    .buttonStyle(PlainButtonStyle())
+                    .position(position)
+        } else {
+            VStack {
+                ImageButton(imageName: "level\(levelNumber)", size: size, imagePadding: imagePadding)
+                ProgressBar(progress: cognitiveModel.levelScores[levelNumber - 1], width: 70, height: 8, isYellowOnly: false)
             }
+                    .position(position)
+                    .opacity(0.5)
+                    .disabled(true)
+        }
     }
 }

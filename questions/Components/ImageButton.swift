@@ -17,16 +17,16 @@ struct ImageButton: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(background)
-                .frame(width: size, height: size)
-            
+                    .fill(background)
+                    .frame(width: size, height: size)
+
             Image(imageName)
-                .resizable()
-                .scaledToFit()
-                .padding(imagePadding)
-                .frame(width: size - 2 * imagePadding, height: size - 2 * imagePadding)
+                    .resizable()
+                    .scaledToFit()
+                    .padding(imagePadding)
+                    .frame(width: size - 2 * imagePadding, height: size - 2 * imagePadding)
         }
-        .clipShape(Circle())
-        .shadow(radius: 3)
+                .clipShape(Circle())
+                .shadow(radius: 3)
     }
 }

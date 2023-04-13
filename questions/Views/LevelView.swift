@@ -24,16 +24,16 @@ struct LevelView: View {
 
                     GeometryReader { geo in
                         ZStack {
-                            
+
                             Image("Wallpaper")
-                                .resizable()
-                                .scaledToFit()
-                                .aspectRatio(contentMode: .fill)
-                                .edgesIgnoringSafeArea(.all)
-                                .frame(width: geo.size.width, height:
-                                        geo.size.height, alignment: .center)
-                                .opacity(1.0)
-                            
+                                    .resizable()
+                                    .scaledToFit()
+                                    .aspectRatio(contentMode: .fill)
+                                    .edgesIgnoringSafeArea(.all)
+                                    .frame(width: geo.size.width, height:
+                                    geo.size.height, alignment: .center)
+                                    .opacity(1.0)
+
                             // More than 10 views gives error, we resolve this by creating sub groups
                             Group {
                                 Group {
@@ -73,81 +73,80 @@ struct LevelView: View {
                                     Arrowhead(position: CGPoint(x: 169, y: 90), rotation: 136)
                                 }
                             }
-                            
+
                             Group {
                                 LevelButton(levelNumber: 1, size: 55, imagePadding: 4, position: CGPoint(x: 160, y: 630))
-                                    .environmentObject(cognitiveModel)
-                                
+                                        .environmentObject(cognitiveModel)
+
                                 LevelButton(levelNumber: 2, size: 55, imagePadding: 6, position: CGPoint(x: 320, y: 570))
-                                    .environmentObject(cognitiveModel)
-                                
+                                        .environmentObject(cognitiveModel)
+
                                 LevelButton(levelNumber: 3, size: 55, imagePadding: 3, position: CGPoint(x: 70, y: 450))
-                                    .environmentObject(cognitiveModel)
-                                
+                                        .environmentObject(cognitiveModel)
+
                                 LevelButton(levelNumber: 4, size: 55, imagePadding: 5, position: CGPoint(x: 268, y: 340))
-                                    .environmentObject(cognitiveModel)
-                                
+                                        .environmentObject(cognitiveModel)
+
                                 LevelButton(levelNumber: 5, size: 55, imagePadding: 2, position: CGPoint(x: 100, y: 300))
-                                    .environmentObject(cognitiveModel)
-                                
+                                        .environmentObject(cognitiveModel)
+
                                 LevelButton(levelNumber: 6, size: 55, imagePadding: 2, position: CGPoint(x: 230, y: 165))
-                                    .environmentObject(cognitiveModel)
-                                
+                                        .environmentObject(cognitiveModel)
+
                                 LevelButton(levelNumber: 7, size: 55, imagePadding: 2, position: CGPoint(x: 103, y: 40))
-                                    .environmentObject(cognitiveModel)
+                                        .environmentObject(cognitiveModel)
                             }
 
                         }
                     }
                     NavigationLink(destination: ProgressView(cognitiveModel: cognitiveModel)) {
-                         Text("My Progress")
-                             .font(.headline)
-                             .padding(.vertical, 8)
-                             .padding(.horizontal, 12)
-                             .background(RoundedRectangle(cornerRadius: 8).fill(Color.accentColor))
-                             .foregroundColor(.white)
-                             .padding(.horizontal)
-                     }
+                        Text("My Progress")
+                                .font(.headline)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 12)
+                                .background(RoundedRectangle(cornerRadius: 8).fill(Color.accentColor))
+                                .foregroundColor(.white)
+                                .padding(.horizontal)
+                    }
                 }
-    
+
             }
 
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .edgesIgnoringSafeArea(.all)
-        .background(Color(.black))
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
-        .onAppear {
-            self.presentationMode.wrappedValue.dismiss()
-        }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .edgesIgnoringSafeArea(.all)
+                .background(Color(.black))
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+                .onAppear {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
     }
 }
 
- 
 
 struct Line: View {
     let startPoint: CGPoint
     let endPoint: CGPoint
-    
+
     var body: some View {
         Path { path in
             path.move(to: startPoint)
             path.addLine(to: endPoint)
         }
-        .stroke(.black, lineWidth: 3)
+                .stroke(.black, lineWidth: 3)
     }
 }
 
 struct Arrowhead: View {
     let position: CGPoint
     let rotation: Double
-    
+
     var body: some View {
         Image(systemName: "arrowtriangle.down.fill")
-            .font(.system(size: 20.0))
-            .rotationEffect(.degrees(rotation), anchor: .center)
-            .position(position)
+                .font(.system(size: 20.0))
+                .rotationEffect(.degrees(rotation), anchor: .center)
+                .position(position)
     }
 }

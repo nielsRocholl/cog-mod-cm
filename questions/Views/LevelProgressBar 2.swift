@@ -5,14 +5,15 @@ struct CustomProgressView: View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Rectangle()
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .opacity(0.3)
-                    .foregroundColor(Color(.systemGray5))
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .opacity(0.3)
+                        .foregroundColor(Color(.systemGray5))
 
                 Rectangle()
-                    .frame(width: geometry.size.width * progress, height: geometry.size.height)
-                    .foregroundColor(Color(.systemBlue))
+                        .frame(width: geometry.size.width * progress, height: geometry.size.height)
+                        .foregroundColor(Color(.systemBlue))
             }
-        }.cornerRadius(45.0)
+        }
+                .cornerRadius(45.0)
     }
 }

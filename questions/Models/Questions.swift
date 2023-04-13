@@ -9,12 +9,12 @@ import Foundation
 
 struct Questions: Decodable {
     var results: [Result]
-    
+
     struct Result: Decodable, Identifiable {
         var id: UUID {
             UUID()
         }
-        
+
         var type: String
         var img: String?
         var question: String
@@ -24,7 +24,7 @@ struct Questions: Decodable {
         var points: Int
         var hint: String
 
-    
+
         var formattedQuestion: AttributedString {
             do {
                 return try AttributedString(markdown: question)
@@ -33,17 +33,17 @@ struct Questions: Decodable {
                 return ""
             }
         }
-        
+
         var answers: [Answer] {
             do {
                 let correct = [Answer(text: try AttributedString(markdown: correctAnswer), isCorrect: true)]
-                let incorrects = try incorrectAnswers.map {answer in
+                let incorrects = try incorrectAnswers.map { answer in
                     Answer(text: try AttributedString(markdown: answer), isCorrect: false)
                 }
                 let allAnswers = correct + incorrects
-                
+
                 return allAnswers.shuffled()
-                
+
             } catch {
                 print("Error setting answers: \(error)")
                 return []
